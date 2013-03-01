@@ -35,7 +35,7 @@ public class Customer {
     }
 
     public void testGit(){
-        System.out.println("hej");
+        System.out.println("hej hej hej");
     }
 
     public void setAddress(String address) {
