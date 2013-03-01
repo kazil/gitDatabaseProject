@@ -34,9 +34,6 @@ public class Customer {
         this.invoiceAccount = invoiceAccount;
     }
 
-    public void egHeitaIda(){
-        System.out.println("IDA");
-    }
     public void setAddress(String address) {
         this.address = address;
     }
