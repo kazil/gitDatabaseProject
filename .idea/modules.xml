@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/hcsDatabaseProject.iml" filepath="$PROJECT_DIR$/hcsDatabaseProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gitDatabaseProject.iml" filepath="$PROJECT_DIR$/gitDatabaseProject.iml" />
     </modules>
   </component>
 </project>

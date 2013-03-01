@@ -67,7 +67,7 @@ public class SalesmanGUI extends JFrame{
      */
     public SalesmanGUI(){
         zipCodes = db.getZipCodes();
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("Salesman Interface");
         setLayout(new GridBagLayout());
         GridBagConstraints fgb = new GridBagConstraints();
@@ -510,7 +510,8 @@ public class SalesmanGUI extends JFrame{
                     break;
                 case "exit":
                     System.out.println("exit");
-                    System.exit(0);
+                    dispose();
+
                     break;
                 case "saveCustomer":
                     // Hide the panel
