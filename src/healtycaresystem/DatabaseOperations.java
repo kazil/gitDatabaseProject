@@ -19,6 +19,7 @@ public class DatabaseOperations {
     private DatabaseManagement db;
     private final String selectAllCustomers = "select * from customers order by first_name";
     private final String sqlSelectZip = "select * from zip_code order by zip_code";
+    private final String selectAllUsers = "select * from users";
 
     /**
      * Construktor.
@@ -96,6 +97,30 @@ public class DatabaseOperations {
         }
         db.closeConnection();
         return city;
+    }
+    /**
+     * Method for fetching all users from database.
+     *
+     * @return - ArrayList<User> with all users.
+     */
+    public ArrayList<User> getUsers() {
+        db.openConnection();
+        ResultSet res = db.getSelection(selectAllUsers);
+        ArrayList<User> users = new ArrayList<User>();
+        try {
+            while (res.next()) {
+                String userName = res.getString("user_name");
+                String password = res.getString("password");
+                String clearance = res.getString("clearance");
+                users.add(new User(userName, password, clearance));
+            }
+        } catch (SQLException e) {
+            System.out.println("SQL error in getUsers()");
+        } finally {
+            db.closeConnection();
+            return users;
+        }
+
     }
 
     /**
