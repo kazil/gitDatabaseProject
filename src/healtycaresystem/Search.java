@@ -6,7 +6,7 @@ public class Search {
     public Search(){
 
     }
-
+    /***/
     public ArrayList<Customer> searchCustomer(ArrayList<Customer> list, String criteria){
         int critInt = -1;
         ArrayList<Customer> resultList = new ArrayList<Customer>();
