@@ -34,10 +34,6 @@ public class Customer {
         this.invoiceAccount = invoiceAccount;
     }
 
-    public void testGit(){
-        System.out.println("hej hej hej");
-    }
-
     public void setAddress(String address) {
         this.address = address;
     }
