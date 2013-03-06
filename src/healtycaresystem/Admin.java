@@ -22,25 +22,22 @@ import static javax.swing.JOptionPane.*;
  */
 public class Admin extends javax.swing.JFrame {
 
-    private JButton sale = new JButton("Sale");
+    private JButton users = new JButton("Users");
     private JButton employers = new JButton("Employers");
     private JButton exit = new JButton("Exit");
     private Insets margins = new Insets(5, 5, 5, 5);
     private Dimension dimension = new Dimension(1920, 1080);
     int employeeID = 0;
-    SalesmanGUI window;
 
     public Admin(int employeeID) {
         this.employeeID = employeeID;
-        window = new SalesmanGUI(employeeID);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLayout(new GridBagLayout());
         setPreferredSize(dimension);
-        sale.setPreferredSize(new Dimension(100, 50));
+        users.setPreferredSize(new Dimension(100, 50));
         employers.setPreferredSize(new Dimension(100, 50));
         exit.setPreferredSize(new Dimension(100, 50));
         setTitle("Admin Vindu");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 // setter layout, legger til tekst og knapper
         GridBagConstraints gb = new GridBagConstraints();
@@ -50,7 +47,7 @@ public class Admin extends javax.swing.JFrame {
         gb.gridy = 0;
         gb.anchor = GridBagConstraints.FIRST_LINE_START;
         gb.insets = margins;
-        add(sale, gb);
+        add(users, gb);
         gb.gridy++;
         add(employers, gb);
         gb.gridy++;
@@ -58,9 +55,6 @@ public class Admin extends javax.swing.JFrame {
         gb.gridy = 0;
         gb.gridx = 1;
         gb.gridheight = 4;
-
-// forsøk på å legge inn salesmanGUI og sette visible til false
-        add(window.getRootPane().getContentPane(), gb);
 
 // legger inn fillersetter knappene for at de skal holde seg til høyre hjørne
         gb.gridy = 2;
@@ -73,7 +67,7 @@ public class Admin extends javax.swing.JFrame {
 
 // legger til en knappelytter og kobler denne til knappene
         Knappelytter knappelytteren = new Knappelytter();
-        sale.addActionListener(knappelytteren);
+        users.addActionListener(knappelytteren);
         exit.addActionListener(knappelytteren);
 
         pack();
@@ -87,9 +81,7 @@ public class Admin extends javax.swing.JFrame {
             JButton valgtKnapp = (JButton) hendelse.getSource();
 
             // Åpner riktig vindu
-            if (valgtKnapp.equals(sale)) {
-                window.setVisible(false);
-                remove(window);
+            if (valgtKnapp.equals(users)) {
             } else if (valgtKnapp.equals(exit)) {
                 dispose();
             } else if (valgtKnapp.equals(employers)) {
