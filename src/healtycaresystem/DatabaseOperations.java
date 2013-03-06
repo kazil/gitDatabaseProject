@@ -10,6 +10,9 @@ import java.sql.*;
  * Do operations
  * And close the connection when done. This is done with db.closeConnection().
  * closeConnection() closes ResultSet, Statement and Connection objects in the DatabaseManagement object.
+ *
+ * Business customers have customer_type = 0.
+ * Private customer have customer_type = 1.
  * @author Team One
  */
 public class DatabaseOperations {
@@ -17,9 +20,13 @@ public class DatabaseOperations {
     private String dbDriver = "org.apache.derby.jdbc.ClientDriver";
     private String dbName = "jdbc:derby://db.stud.aitel.hist.no/healthycaresystems;user=teamone;password=1ForTheWin";
     private DatabaseManagement db;
-    private final String selectAllCustomers = "select * from customers order by first_name";
+    private final String selectAllCustomers = "select * from customers";
     private final String sqlSelectZip = "select * from zip_code order by zip_code";
     private final String selectAllUsers = "select * from users";
+    private final String selectAllPackages = "SELECT * FROM package";
+    private final String insertBusinessCustomer = "INSERT INTO customers(first_name, surname, adress, zip_code, telephone_number, email, organization_name, invoice_account, customer_type) VALUES(";
+    private final String insertPrivateCustomer = "INSERT INTO customers(first_name, surname, adress, zip_code, telephone_number, email, customer_type) VALUES(";
+    private final String insertOrder = "INSERT INTO orders(delivery_date, order_status, package_id, customer_id, employee_id) VALUES(";
 
     /**
      * Construktor.
@@ -30,33 +37,112 @@ public class DatabaseOperations {
         db = new DatabaseManagement(dbDriver, dbName);
     }
 
-    /**
-     * Method for fetching all customers from database.
-     *
-     * @return - ArrayList<Customer> with all customers.
-     */
-    public ArrayList<Customer> getCustomers() {
+    public ArrayList<Person> getAllCustomers(){
         db.openConnection();
+        ArrayList<Person> customers = new ArrayList<>();
         ResultSet res = db.getSelection(selectAllCustomers);
-        ArrayList<Customer> customers = new ArrayList<Customer>();
         try {
-            while (res.next()) {
+            while(res.next()){
                 int id = res.getInt("customer_id");
-                String address = res.getString("address");
+                String fName = res.getString("first_name");
+                String sName = res.getString("surname");
+                String adr = res.getString("adress");
+                String zipCode = res.getString("zip_code");
+                String city = getCityFromZipCode(zipCode);
                 String tlf = res.getString("telephone_number");
                 String email = res.getString("email");
-                String zip = res.getString("zip_code");
                 String orgName = res.getString("organization_name");
-                String fname = res.getString("first_name");
-                String lname = res.getString("surname");
                 String account = res.getString("invoice_account");
-                customers.add(new Customer(id, address, tlf, email, orgName, fname, lname, null, account));
+                int type = res.getInt("customer_type");
+                if(type == 0){
+                    // Business
+                    customers.add(new BusinessCustomer(id,fName, sName, adr, new ZipCode(zipCode, city), tlf, email, account, orgName));
+                }else {
+                    // Private
+                    customers.add(new PrivateCustomer(id,fName, sName, adr, new ZipCode(zipCode, city), tlf, email));
+                }
             }
-        } catch (SQLException e) {
-            System.out.println("Feil oppstod i getCustomers()");
+        } catch (Exception e) {
+            // Exception handling
+            System.out.println("Error in DatabaseOperations.getAllCustomers()");
         } finally {
             db.closeConnection();
             return customers;
+        }
+    }
+
+    public boolean regBusinessCustomer(BusinessCustomer newCustomer){
+        // String firstName, String surname, String address, ZipCode zipCode, String telephoneNumber, String email, String invoiceAccount, String orgName
+        String fName = newCustomer.getFirstName();
+        String sName = newCustomer.getSurname();
+        String adr = newCustomer.getAddress();
+        String zipCode = newCustomer.getZipCode().getZipCode();
+        String tlf = newCustomer.getTelephoneNumber();
+        String email = newCustomer.getEmail();
+        String account = newCustomer.getInvoiceAccount();
+        String orgName = newCustomer.getOrgName();
+        String sql = insertBusinessCustomer + "'"+ fName +"','" + sName + "','" + adr + "','" + zipCode + "','" + tlf + "','" + email + "','" + orgName + "','" + account + "', 0)";
+        db.openConnection();
+        if(db.doUpdate(sql)){
+            db.closeConnection();
+            return true;
+        } else {
+            db.closeConnection();
+            return false;
+        }
+    }
+
+    public boolean regPrivateCustomer(PrivateCustomer newCustomer){
+        // String firstName, String surname, String address, ZipCode zipCode, String telephoneNumber, String email
+        String fName = newCustomer.getFirstName();
+        String sName = newCustomer.getSurname();
+        String adr = newCustomer.getAddress();
+        String zipCode = newCustomer.getZipCode().getZipCode();
+        String tlf = newCustomer.getTelephoneNumber();
+        String email = newCustomer.getEmail();
+        String sql = insertPrivateCustomer + "'"+ fName +"','" + sName + "','" + adr + "','" + zipCode + "','" + tlf + "','" + email + "', 1)";
+        db.openConnection();
+        if(db.doUpdate(sql)){
+            db.closeConnection();
+            return true;
+        } else {
+            db.closeConnection();
+            return false;
+        }
+    }
+
+    public boolean regOrder(Order newOrder){
+        String deliveryDate = newOrder.getDeliveryDate();
+        int orderStatus = newOrder.getOrderStatus();
+        int packageID = newOrder.getPackageID();
+        int customerID = newOrder.getCustomerID();
+        int employeeID = newOrder.getEmployeeID();
+        String sql = insertOrder+"DATE('"+deliveryDate+"'),"+orderStatus+","+packageID+","+customerID+","+employeeID+")";
+        db.openConnection();
+        if(db.doUpdate(sql)){
+            db.closeConnection();
+            return true;
+        }else{
+            db.closeConnection();
+            return false;
+        }
+    }
+
+    public ArrayList<Package> getPackages() {
+        db.openConnection();
+        ArrayList<Package> packages = new ArrayList<>();
+        ResultSet res = db.getSelection(selectAllPackages);
+        try {
+            while(res.next()){
+                int id = res.getInt("package_id");
+                String name = res.getString("package_name");
+                packages.add(new Package(id, name));
+            }
+        } catch (Exception e) {
+            System.out.println("Error in getPackages()");
+        } finally{
+            db.closeConnection();
+            return packages;
         }
     }
 
@@ -98,6 +184,7 @@ public class DatabaseOperations {
         db.closeConnection();
         return city;
     }
+
     /**
      * Method for fetching all users from database.
      *
@@ -112,7 +199,8 @@ public class DatabaseOperations {
                 String userName = res.getString("user_name");
                 String password = res.getString("password");
                 String clearance = res.getString("clearance");
-                users.add(new User(userName, password, clearance));
+                int employeeID = res.getInt("employee_id");
+                users.add(new User(userName, password, clearance, employeeID));
             }
         } catch (SQLException e) {
             System.out.println("SQL error in getUsers()");
@@ -121,61 +209,6 @@ public class DatabaseOperations {
             return users;
         }
 
-    }
-
-    /**
-     * Method for registering a new customer in the database. Look closer on
-     * this method before launch!
-     *
-     * @param newCustomer - the customers to be saved.
-     */
-    public void regCustomer(Customer newCustomer) {
-        // address
-        String adr = "'" + newCustomer.getAddress() + "',";
-        // telephone number
-        String tlf = "'" + newCustomer.getTelephoneNumber() + "',";
-        // sjekker om mail skal være null
-        String mailLest = newCustomer.getEmail();
-        String mail = null;
-        if (mailLest == null || mailLest.trim().equals("")) {
-            mail = "NULL,";
-        } else {
-            mail = "'" + newCustomer.getEmail() + "',";
-        }
-        // sjekker om orgName skal være null
-        String orgNameLest = newCustomer.getOrganizationName();
-        String orgName = null;
-        if (orgNameLest == null || orgNameLest.trim().equals("")) {
-            orgName = "NULL,";
-        } else {
-            orgName = "'" + newCustomer.getOrganizationName() + "',";
-        }
-        // first name
-        String fname = "'" + newCustomer.getFirstName() + "',";
-        // surname
-        String sname = "'" + newCustomer.getSurname() + "',";
-        // sjekker om account skal være null.
-        String accountLest = newCustomer.getInvoiceAccount();
-        String account = null;
-        if (accountLest == null || accountLest.trim().equals("")) {
-            account = "NULL";
-        } else {
-            account = "'" + newCustomer.getInvoiceAccount() + "'";
-        }
-        // zip code
-        String zip = "'" + newCustomer.getZip().getZipCode() + "',";
-
-        String sqlUpdate = "insert into customers(address, telephone_number, email, zip_code, organization_name, first_name, surname, invoice_account)"
-                + " values(" + adr + tlf + mail + zip + orgName + fname + sname + account + ")";
-        System.out.println(sqlUpdate);
-        db.openConnection();
-        boolean sjekk = db.doUpdate(sqlUpdate);
-        if (sjekk) {
-            System.out.println("reg ok");
-        } else {
-            System.out.println("reg ikke ok");
-        }
-        db.closeConnection();
     }
 
     public void regZip(String zip, String city){

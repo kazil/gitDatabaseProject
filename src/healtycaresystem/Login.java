@@ -165,7 +165,8 @@ public class Login extends javax.swing.JFrame {
                         System.out.println("Admin");
                         break;
                     case 1:
-                        SalesmanGUI window = new SalesmanGUI();
+                        int employeeID = user.getEmployeeID();
+                        SalesmanGUI window = new SalesmanGUI(employeeID);
                         window.setVisible(true);
                         //this.setVisible(false);
                         break;
