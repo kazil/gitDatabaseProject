@@ -30,6 +30,9 @@ public class Admin extends javax.swing.JFrame {
     int employeeID = 0;
 
     public Admin(int employeeID) {
+        users.setActionCommand("users");
+        employers.setActionCommand("employers");
+        exit.setActionCommand("exit");
         this.employeeID = employeeID;
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLayout(new GridBagLayout());
@@ -66,25 +69,26 @@ public class Admin extends javax.swing.JFrame {
         add(Box.createGlue(), gb);
 
 // legger til en knappelytter og kobler denne til knappene
-        Knappelytter knappelytteren = new Knappelytter();
+        Actionlistener knappelytteren = new Actionlistener();
         users.addActionListener(knappelytteren);
         exit.addActionListener(knappelytteren);
 
         pack();
     }
 
-    private class Knappelytter implements ActionListener {
+    private class Actionlistener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent hendelse) {
             // Finner hvilken knapp som ble trykket på
-            JButton valgtKnapp = (JButton) hendelse.getSource();
-
+            String ac = hendelse.getActionCommand();
             // Åpner riktig vindu
-            if (valgtKnapp.equals(users)) {
-            } else if (valgtKnapp.equals(exit)) {
-                dispose();
-            } else if (valgtKnapp.equals(employers)) {
+            switch(ac){
+                case "users":
+                case "employers":
+                case "exit":
+                    dispose();
+
             }
         }
     }
