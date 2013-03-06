@@ -2,30 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37174a8f-8325-4ee2-91b2-7cd7a5849485" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/healtycaresystem/BusinessCustomer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/healtycaresystem/Employee.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/healtycaresystem/Ingredient.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/healtycaresystem/Order.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/healtycaresystem/Package.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/healtycaresystem/Person.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/healtycaresystem/PrivateCustomer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/healtycaresystem/Recipe.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/healtycaresystem/SelectPackageDialog.java" />
-      <change type="DELETED" beforePath="C:\Users\Tom\IdeaProjects\hcsRedigertForPerson\src\healtycaresystem\Customer.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healtycaresystem/DatabaseOperations.java" afterPath="$PROJECT_DIR$/src/healtycaresystem/DatabaseOperations.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/healtycaresystem/Admin.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healtycaresystem/Login.java" afterPath="$PROJECT_DIR$/src/healtycaresystem/Login.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healtycaresystem/SalesmanGUI.java" afterPath="$PROJECT_DIR$/src/healtycaresystem/SalesmanGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healtycaresystem/Search.java" afterPath="$PROJECT_DIR$/src/healtycaresystem/Search.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healtycaresystem/User.java" afterPath="$PROJECT_DIR$/src/healtycaresystem/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healtycaresystem/VerifyInput.java" afterPath="$PROJECT_DIR$/src/healtycaresystem/VerifyInput.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/derbyclient.xml" afterPath="$PROJECT_DIR$/.idea/libraries/derbyclient.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hcsDatabaseProject.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.java" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362556648883" ignored="false" />
+    <file path="/fragment.java" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362575501159" ignored="false" />
     <file path="/SalesmanGUI.java" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362561406199" ignored="false" />
-    <file path="/Dummy.txt" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362573159243" ignored="false" />
+    <file path="/Dummy.txt" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362575118540" ignored="false" />
     <file path="/Search.java" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362331387367" ignored="false" />
     <file path="$PROJECT_DIR$/../oving4/js/vendor/modernizr-2.6.2.min.js" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362143631251" ignored="false" />
     <file path="$PROJECT_DIR$/../oving4/index.html" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362143972258" ignored="false" />
@@ -46,8 +33,9 @@
     <file path="/Ingredient.java" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362386286583" ignored="false" />
     <file path="/Recipe.java" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362386839776" ignored="false" />
     <file path="/Order.java" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362417898177" ignored="false" />
-    <file path="/Login.java" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362561755971" ignored="false" />
+    <file path="/Login.java" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362576121716" ignored="false" />
     <file path="/User.java" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362483521013" ignored="false" />
+    <file path="/Admin.java" changelist="37174a8f-8325-4ee2-91b2-7cd7a5849485" time="1362575969878" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,20 +105,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SelectPackageDialog.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/healtycaresystem/SelectPackageDialog.java">
+      <file leaf-file-name="Admin.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/healtycaresystem/Admin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="169" column="116" selection-start="5776" selection-end="5776" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseOperations.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/healtycaresystem/DatabaseOperations.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="192" column="38" selection-start="7954" selection-end="7954" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="97" column="5" selection-start="3109" selection-end="3109" vertical-scroll-proportion="0.78673834">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -138,8 +119,54 @@
       <file leaf-file-name="SalesmanGUI.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/healtycaresystem/SalesmanGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="616" column="26" selection-start="21127" selection-end="21127" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="72" column="8" selection-start="2517" selection-end="2546" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc;n#customers#0;n#SalesmanGUI#0" expanded="false" />
+                <element signature="e#1193#1282#0" expanded="false" />
+                <element signature="docComment;field#tableCustomers#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;field#fieldID#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;field#fieldSearch#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="n#!!doc;n#panelTable#0;n#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;method#SalesmanGUI#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;method#initPanels#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#initPanels#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;method#setWinSize#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#setWinSize#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;method#updateCustomerTable#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#updateCustomerTable#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#setEditableAll#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#editablePrivate#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;method#tableSearch#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#tableSearch#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;method#resetNewCustomerFields#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#resetNewCustomerFields#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;field#gbc#0;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#PanelTable#0;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;method#initTable#0;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#initTable#0;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="class#8151:8347" expanded="false" />
+                <element signature="method#isCellEditable#0;class#8151:8347" expanded="false" />
+                <element signature="docComment;class#PanelActions#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="class#PanelActions#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#PanelActions#0;class#PanelActions#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#initComponents#0;class#PanelActions#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;field#gbc#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#PanelRegCustomer#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;method#initRegFields#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#initRegFields#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#initButtons#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="docComment;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="n#!!doc;n#orgName#0;n#Listener#0;n#SalesmanGUI#0" expanded="false" />
+                <element signature="method#caretUpdate#0;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#actionPerformed#0;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#regCustomer#0;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+                <element signature="method#findCustomerID#0;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,17 +174,10 @@
       <file leaf-file-name="Login.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/healtycaresystem/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="20" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/healtycaresystem/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="0.091561936">
-              <folding />
+            <state line="167" column="39" selection-start="7997" selection-end="7998" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#719#749#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -182,7 +202,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/healtycaresystem/PrivateCustomer.java" />
         <option value="$PROJECT_DIR$/src/healtycaresystem/BusinessCustomer.java" />
         <option value="$PROJECT_DIR$/src/healtycaresystem/Employee.java" />
         <option value="$PROJECT_DIR$/src/healtycaresystem/Person.java" />
@@ -198,6 +217,7 @@
         <option value="$PROJECT_DIR$/src/healtycaresystem/SelectPackageDialog.java" />
         <option value="$PROJECT_DIR$/src/healtycaresystem/SalesmanGUI.java" />
         <option value="$PROJECT_DIR$/src/healtycaresystem/Login.java" />
+        <option value="$PROJECT_DIR$/src/healtycaresystem/Admin.java" />
       </list>
     </option>
   </component>
@@ -238,14 +258,16 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="gitDatabaseProject" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -254,7 +276,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hcsRedigertForPerson" />
+              <option name="myItemId" value="Git" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -264,7 +286,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hcsRedigertForPerson" />
+              <option name="myItemId" value="Git" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -278,18 +300,20 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.lastSelected" value="editing.templates" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="C:/Program Files (x86)/Java/jdk1.7.0_06/db/lib/derbyclient.jar!/" />
+    <property name="project.structure.side.proportion" value="0.19999999" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="Database.TableEditor.Splitter" value="0.89999986" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -297,9 +321,9 @@
     <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -346,19 +370,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -385,6 +396,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -423,12 +447,6 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -442,6 +460,12 @@
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <list size="1">
@@ -528,12 +552,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32844242" sideWeight="0.49359658" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14887941" sideWeight="0.6580135" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14887941" sideWeight="0.6580135" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980423" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -541,14 +565,14 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967892" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32545045" sideWeight="0.49573106" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3261851" sideWeight="0.49573106" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32844242" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967892" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13553895" sideWeight="0.6580135" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34198645" sideWeight="0.9759904" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13553895" sideWeight="0.6591422" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34085777" sideWeight="0.9759904" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33521444" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -620,14 +644,87 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbDummy://dbtable:/f6920df6/4466c719-12ce-4c6c-883d-3578189fd6bb/.TEAMONE.CUSTOMERS">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
+    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/SelectPackageDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="169" column="116" selection-start="5776" selection-end="5776" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/f6920df6/4466c719-12ce-4c6c-883d-3578189fd6bb/.TEAMONE.ZIP_CODE">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
+    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/DatabaseOperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="192" column="38" selection-start="7954" selection-end="7954" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/SalesmanGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="616" column="26" selection-start="21127" selection-end="21127" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc;n#customers#0;n#SalesmanGUI#0" expanded="false" />
+            <element signature="e#1193#1282#0" expanded="false" />
+            <element signature="docComment;field#tableCustomers#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;field#fieldID#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;field#fieldSearch#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="n#!!doc;n#panelTable#0;n#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#SalesmanGUI#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#initPanels#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#initPanels#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#setWinSize#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#setWinSize#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#updateCustomerTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#updateCustomerTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#setEditableAll#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#editablePrivate#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#tableSearch#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#tableSearch#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#resetNewCustomerFields#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#resetNewCustomerFields#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;field#gbc#0;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#PanelTable#0;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#initTable#0;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#initTable#0;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="class#8151:8347" expanded="false" />
+            <element signature="method#isCellEditable#0;class#8151:8347" expanded="false" />
+            <element signature="docComment;class#PanelActions#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="class#PanelActions#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#PanelActions#0;class#PanelActions#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#initComponents#0;class#PanelActions#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;field#gbc#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#PanelRegCustomer#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#initRegFields#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#initRegFields#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#initButtons#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="n#!!doc;n#orgName#0;n#Listener#0;n#SalesmanGUI#0" expanded="false" />
+            <element signature="method#caretUpdate#0;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#regCustomer#0;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#findCustomerID#0;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="20" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#719#749#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/healtycaresystem/Package.java">
@@ -642,21 +739,6 @@
         <state line="19" column="100" selection-start="585" selection-end="668" vertical-scroll-proportion="0.0">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/f6920df6/4466c719-12ce-4c6c-883d-3578189fd6bb/.TEAMONE.POSITIONS">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/f6920df6/4466c719-12ce-4c6c-883d-3578189fd6bb/.TEAMONE.EMPLOYEES">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="dbDummy://db-console:/f6920df6/4466c719-12ce-4c6c-883d-3578189fd6bb/">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="49" selection-start="0" selection-end="48" vertical-scroll-proportion="-0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/healtycaresystem/Search.java">
@@ -677,48 +759,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/DatabaseOperations.java">
+    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/SelectPackageDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="38" selection-start="7954" selection-end="7954" vertical-scroll-proportion="0.0">
+        <state line="169" column="116" selection-start="5776" selection-end="5776" vertical-scroll-proportion="0.09280743">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/SelectPackageDialog.java">
+    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/DatabaseOperations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="116" selection-start="5776" selection-end="5776" vertical-scroll-proportion="0.0">
+        <state line="192" column="38" selection-start="7954" selection-end="7954" vertical-scroll-proportion="0.11896349">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="36" selection-start="133" selection-end="133" vertical-scroll-proportion="0.118329465">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/healtycaresystem/SalesmanGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="616" column="26" selection-start="21127" selection-end="21127" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="72" column="8" selection-start="2517" selection-end="2546" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc;n#customers#0;n#SalesmanGUI#0" expanded="false" />
+            <element signature="e#1193#1282#0" expanded="false" />
+            <element signature="docComment;field#tableCustomers#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;field#fieldID#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;field#fieldSearch#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="n#!!doc;n#panelTable#0;n#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#SalesmanGUI#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#initPanels#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#initPanels#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#setWinSize#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#setWinSize#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#updateCustomerTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#updateCustomerTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#setEditableAll#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#editablePrivate#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#tableSearch#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#tableSearch#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#resetNewCustomerFields#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#resetNewCustomerFields#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;field#gbc#0;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#PanelTable#0;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#initTable#0;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#initTable#0;class#PanelTable#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="class#8151:8347" expanded="false" />
+            <element signature="method#isCellEditable#0;class#8151:8347" expanded="false" />
+            <element signature="docComment;class#PanelActions#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="class#PanelActions#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#PanelActions#0;class#PanelActions#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#initComponents#0;class#PanelActions#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;field#gbc#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#PanelRegCustomer#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;method#initRegFields#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#initRegFields#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#initButtons#0;class#PanelRegCustomer#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="docComment;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="n#!!doc;n#orgName#0;n#Listener#0;n#SalesmanGUI#0" expanded="false" />
+            <element signature="method#caretUpdate#0;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#actionPerformed#0;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#regCustomer#0;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+            <element signature="method#findCustomerID#0;class#Listener#0;class#SalesmanGUI#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/healtycaresystem/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="20" selection-start="432" selection-end="432" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="167" column="39" selection-start="7997" selection-end="7998" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#719#749#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/f6920df6/4466c719-12ce-4c6c-883d-3578189fd6bb/.TEAMONE.USERS">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/f6920df6/4466c719-12ce-4c6c-883d-3578189fd6bb/.TEAMONE.ORDERS">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/User.java">
+    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/Admin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="0.091561936">
-          <folding />
+        <state line="97" column="5" selection-start="3109" selection-end="3109" vertical-scroll-proportion="0.78673834">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -774,7 +903,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>hcsDatabaseProject</last-edited>
+          <last-edited>gitDatabaseProject</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

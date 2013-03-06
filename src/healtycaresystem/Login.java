@@ -160,14 +160,18 @@ public class Login extends javax.swing.JFrame {
         for (User user : list) {
             if (fieldUser.getText().trim().equals(user.getUsername().trim()) && fieldPassword.getText().equals(user.getPassword().trim())) {
                 int menu = Integer.parseInt(user.getClearance());
+                int employeeID = 0;
                 switch (menu) {
                     case 0:
                         System.out.println("Admin");
+                        employeeID = user.getEmployeeID();
+                        Admin windowAd = new Admin(employeeID);
+                        windowAd.setVisible(true);
                         break;
                     case 1:
-                        int employeeID = user.getEmployeeID();
-                        SalesmanGUI window = new SalesmanGUI(employeeID);
-                        window.setVisible(true);
+                        employeeID = user.getEmployeeID();
+                        SalesmanGUI windowSa = new SalesmanGUI(employeeID);
+                        windowSa.setVisible(true);
                         //this.setVisible(false);
                         break;
                     case 2:
