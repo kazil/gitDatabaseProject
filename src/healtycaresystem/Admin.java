@@ -20,7 +20,7 @@ import static javax.swing.JOptionPane.*;
 /*
  Klassen Hovedvindu styrer et vindu med tre knapper, som ved klikk åpner tre eksempler på layouthåndterere.
  */
-class Admin extends javax.swing.JFrame {
+public class Admin extends javax.swing.JFrame {
 
     private JButton sale = new JButton("Sale");
     private JButton employers = new JButton("Employers");
