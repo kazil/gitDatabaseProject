@@ -1,5 +1,7 @@
 package healtycaresystem;
 
+import java.util.ArrayList;
+
 public class Order {
     private int orderID;
     private String deliveryDate;
@@ -7,6 +9,7 @@ public class Order {
     private int packageID;
     private int customerID;
     private int employeeID;
+    private ArrayList<Package> packages;
 
     public Order(int orderID, String deliveryDate, int orderStatus, int packageID, int customerID, int employeeID){
         this.orderID = orderID;

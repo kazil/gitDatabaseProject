@@ -12,7 +12,6 @@ public class Recipe {
         this.recipeID = recipeID;
         this.name = name;
         this.price = price;
-        this.ingredients = ingredients;
     }
 
     public int getRecipeID() {
