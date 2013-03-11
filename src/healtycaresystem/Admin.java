@@ -7,10 +7,15 @@ package healtycaresystem;
  * Time: 14:06
  * To change this template use File | Settings | File Templates.
  */
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import static javax.swing.JOptionPane.*;
 
 /*
  Klassen Hovedvindu styrer et vindu med tre knapper, som ved klikk åpner tre eksempler på layouthåndterere.
@@ -35,6 +40,7 @@ class Admin extends javax.swing.JFrame {
         employers.setPreferredSize(new Dimension(100, 50));
         exit.setPreferredSize(new Dimension(100, 50));
         setTitle("Admin Vindu");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 // setter layout, legger til tekst og knapper
         GridBagConstraints gb = new GridBagConstraints();
@@ -82,7 +88,7 @@ class Admin extends javax.swing.JFrame {
 
             // Åpner riktig vindu
             if (valgtKnapp.equals(sale)) {
-                //window.setVisible(false);
+                window.setVisible(false);
                 remove(window);
             } else if (valgtKnapp.equals(exit)) {
                 dispose();

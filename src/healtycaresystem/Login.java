@@ -160,7 +160,7 @@ public class Login extends javax.swing.JFrame {
         for (User user : list) {
             if (fieldUser.getText().trim().equals(user.getUsername().trim()) && fieldPassword.getText().equals(user.getPassword().trim())) {
                 int menu = Integer.parseInt(user.getClearance());
-                int employeeID = 0;
+                int employeeID = 451;
                 switch (menu) {
                     case 0:
                         System.out.println("Admin");
