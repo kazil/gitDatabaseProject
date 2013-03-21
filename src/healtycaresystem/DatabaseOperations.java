@@ -211,6 +211,30 @@ public class DatabaseOperations {
 
     }
 
+    public ArrayList<Person> getAllOrders(){
+        db.openConnection();
+        ArrayList<Order> orders = new ArrayList<>();
+        ResultSet res = db.getSelection(selectAllCustomers);
+        try {
+            while(res.next()){
+                int id = res.getInt("order_id");
+                String fName = res.getString("delivery_date");
+                String sName = res.getString("order_status");
+                String adr = res.getString("package_id");
+                String zipCode = res.getString("customer_id");
+                int type = res.getInt("employee_id");
+                orders.add(new Order(id,fName, sName, adr, new ZipCode(zipCode, city), tlf, email, account, orgName));
+
+            }
+        } catch (Exception e) {
+            // Exception handling
+            System.out.println("Error in DatabaseOperations.getAllCustomers()");
+        } finally {
+            db.closeConnection();
+            return customers;
+        }
+    }
+
     public void regZip(String zip, String city){
         db.openConnection();
         String sqlInsertZip = "INSERT INTO zip_code(zip_code, city) VALUES('"+zip+"','"+city+"')";
