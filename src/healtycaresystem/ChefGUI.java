@@ -12,18 +12,14 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class ChefGUI extends JFrame{
-
+    private ChefRegistry orderReg;
     //<editor-fold defaultstate="collapsed" desc="This fold contains object variables">
-    private ArrayList<Order> orders;
-    private ArrayList<Recipe> recipes;
-    private DatabaseOperations db = new DatabaseOperations();
-    private String[] tableColNames = {"Order ID", "Recipes", "Status", "Surname", "Address", "Telephone Number", "E-mail"};
-    private String[] selections = {"Customer type", "Private", "Business"};
+    private String[] tableColNames = {"Order ID", "Recipes", "Status"};
+    private String[] tableRecipes = {"Recipe type", "Number #"};
     private Listener listener = new Listener();
     private Dimension dimTable = new Dimension(1024, 200);
     private Dimension dimBigWindow = new Dimension(1100, 550);
     private Dimension dimSmallWindow = new Dimension(1100, 350);
-    private VerifyInput vf = new VerifyInput();
     private int employeeID;
     //</editor-fold>
 
@@ -32,19 +28,10 @@ public class ChefGUI extends JFrame{
     private JLabel prompt;
 
     /** Customer table and default table model.**/
-    private JTable tableCustomers;
-    private JScrollPane scrollTableCustomers;
+    private JTable tableOrders;
+    private JScrollPane scrollTableOrders;
     private DefaultTableModel tm;
 
-    /** Components for PanelRegCustomer **/
-    private JTextField
-            fieldID, fieldOrgName, fieldFname, fieldSname,
-            fieldAdr, fieldTlf, fieldEmail, fieldZipCode, fieldAccount;
-    private JButton
-            buttonSaveCustomer,
-            buttonCancelReg;
-    private JTextField fieldCity;
-    private JComboBox<String> selectType;
 
     /** Components for PanelActions **/
     private JTextField fieldSearch;
@@ -69,9 +56,9 @@ public class ChefGUI extends JFrame{
     /**
      * Constructor for SalesmanGUI.
      */
-    public SalesmanGUI(int employeeID){
+    public ChefGUI(int employeeID){
         this.employeeID = employeeID;
-        zipCodes = db.getZipCodes();
+        this.orderReg = new ChefRegistry(employeeID);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setTitle("Salesman Interface");
         setLayout(new GridBagLayout());
@@ -125,97 +112,26 @@ public class ChefGUI extends JFrame{
      * This method fetches all customers from the database
      * and populates the table.
      */
-    public void updateCustomerTable(){
+    public void updateOrderTable(String date){
         // Clear table.
         for(int i = tm.getRowCount() - 1; i >=0; i--){
             tm.removeRow(i);
         }
 
-        orders = db.getAllOrders();
-        for(Person p : customers){
-            String orgName = "Private Customer";
-            String account = "Private Customer";
-            String id = Integer.toString(p.getCustomerID());
-            String fName = p.getFirstName();
-            String sName = p.getSurname();
-            String adr = p.getAddress();
-            String tlf = p.getTelephoneNumber();
-            String email = p.getEmail();
-            if(p instanceof BusinessCustomer){
-                orgName = ((BusinessCustomer) p).getOrgName();
-                account = ((BusinessCustomer) p).getInvoiceAccount();
+        ArrayList<Order> newOrder = orderReg.updateCustomerTable();
+        for(Order o : newOrder){
+            if (date.equals(o.getDeliveryDate())){
+                String id = Integer.toString(o.getOrderID());
+                String pId = Integer.toString(o.getPackageID());
+                String status = Integer.toString(o.getOrderStatus());
+                String[] newRow = new String[]{id, pId, status};
+                tm.addRow(newRow);
             }
-            String[] newRow = {id, orgName, fName, sName, adr, tlf, email};
-            tm.addRow(newRow);
+
+
+
         }
-    }
 
-    public void setEditableAll(boolean editable){
-        fieldOrgName.setEditable(editable);
-        fieldFname.setEditable(editable);
-        fieldSname.setEditable(editable);
-        fieldAdr.setEditable(editable);
-        fieldTlf.setEditable(editable);
-        fieldEmail.setEditable(editable);
-        fieldZipCode.setEditable(editable);
-        fieldCity.setEditable(false);
-        fieldAccount.setEditable(editable);
-    }
-
-    public void editablePrivate(){
-        fieldOrgName.setEditable(false);
-        fieldFname.setEditable(true);
-        fieldSname.setEditable(true);
-        fieldAdr.setEditable(true);
-        fieldTlf.setEditable(true);
-        fieldEmail.setEditable(true);
-        fieldZipCode.setEditable(true);
-        fieldCity.setEditable(false);
-        fieldAccount.setEditable(false);
-    }
-
-    /**
-     * Populates the table with the given array list
-     *
-     * @param newList - ArrayList<Customer>
-     */
-    public void tableSearch(ArrayList<Person> newList){
-        // Clear table.
-        for(int i = tm.getRowCount() - 1; i >=0; i--){
-            tm.removeRow(i);
-        }
-        // Populate table.
-        for(Person p : newList){
-            String orgName = "Private Customer";
-            String account = "Private Customer";
-            String id = Integer.toString(p.getCustomerID());
-            String fName = p.getFirstName();
-            String sName = p.getSurname();
-            String adr = p.getAddress();
-            String tlf = p.getTelephoneNumber();
-            String email = p.getEmail();
-            if(p instanceof BusinessCustomer){
-                orgName = ((BusinessCustomer) p).getOrgName();
-                account = ((BusinessCustomer) p).getInvoiceAccount();
-            }
-            String[] newRow = {id, orgName, fName, sName, adr, tlf, email};
-            tm.addRow(newRow);
-        }
-    }
-
-    /**
-     * Method to reset the fields in PanelRegCustomer.
-     */
-    public void resetNewCustomerFields(){
-        fieldOrgName.setText("");
-        fieldFname.setText("");
-        fieldSname.setText("");
-        fieldAdr.setText("");
-        fieldTlf.setText("");
-        fieldEmail.setText("");
-        fieldAccount.setText("");
-        fieldZipCode.setText("");
-        selectType.setSelectedIndex(0);
     }
 
     /**
@@ -236,7 +152,7 @@ public class ChefGUI extends JFrame{
             gbc.gridx = 0;
             gbc.gridy = 0;
             gbc.insets = margins;
-            add(scrollTableCustomers, gbc);
+            add(scrollTableOrders, gbc);
         }
 
         /**
@@ -252,12 +168,12 @@ public class ChefGUI extends JFrame{
                     return false;
                 }
             };
-            tableCustomers = new JTable(tm);
-            tableCustomers.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            scrollTableCustomers = new JScrollPane(tableCustomers);
-            scrollTableCustomers.setPreferredSize(dimTable);
+            tableOrders = new JTable(tm);
+            tableOrders.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            scrollTableOrders = new JScrollPane(tableOrders);
+            scrollTableOrders.setPreferredSize(dimTable);
 
-            updateCustomerTable();
+            updateOrderTable("test");
         }
 
 
@@ -374,166 +290,23 @@ public class ChefGUI extends JFrame{
             setLayout(new GridBagLayout());
             setPreferredSize(new Dimension(1024, 200));
             initButtons();
-            initRegFields();
+            initTable();
             gbc.insets = margins;
             gbc.anchor = GridBagConstraints.FIRST_LINE_START;
             gbc.gridx = 0;
             gbc.gridy = 0;
             gbc.gridwidth = 2;
-
-            /**************************
-             * First Column with fields
-             **************************/
-            /** Selection box **/
-            prompt = new JLabel("*Chose type:");
-            add(prompt, gbc);
-            gbc.gridx += 2;
-            add(selectType, gbc);
-            /** Organization name **/
-            gbc.gridx -= 2;
-            gbc.gridy++;
-            prompt = new JLabel("Organization Name:");
-            add(prompt, gbc);
-            gbc.gridx += 2;
-            add(fieldOrgName, gbc);
-            /** Invoice account name **/
-            gbc.gridx -= 2;
-            gbc.gridy++;
-            prompt = new JLabel("Invoice Account:");
-            add(prompt, gbc);
-            gbc.gridx += 2;
-            add(fieldAccount, gbc);
-
-
-            /***************************
-             * Second Column with fields
-             ***************************/
-            /** First Name **/
-            gbc.gridx = 4; // start for second column
-            gbc.gridy = 0;
-            prompt = new JLabel("*First Name:");
-            add(prompt, gbc);
-            gbc.gridx += 2;
-            add(fieldFname, gbc);
-            /** Surname **/
-            gbc.gridx -= 2;
-            gbc.gridy++;
-            prompt = new JLabel("*Surname:");
-            add(prompt, gbc);
-            gbc.gridx += 2;
-            add(fieldSname, gbc);
-            /** Address **/
-            gbc.gridx -= 2;
-            gbc.gridy++;
-            prompt = new JLabel("*Address:");
-            add(prompt, gbc);
-            gbc.gridx += 2;
-            add(fieldAdr, gbc);
-
-
-            /***************************
-             * Third Column with fields
-             ***************************/
-            gbc.gridx = 8;
-            gbc.gridy = 0;
-            /** Telephone **/
-            prompt = new JLabel("*Telephone:");
-            add(prompt, gbc);
-            gbc.gridx += 2;
-            add(fieldTlf, gbc);
-            /** E-Mail **/
-            gbc.gridx -= 2;
-            gbc.gridy++;
-            prompt = new JLabel("E-Mail:");
-            add(prompt, gbc);
-            gbc.gridx += 2;
-            add(fieldEmail, gbc);
-            /** Zip Code **/
-            gbc.gridx -= 2;
-            gbc.gridy++;
-            prompt = new JLabel("*Zip Code:");
-            add(prompt, gbc);
-            gbc.gridx += 2;
-            gbc.gridwidth = 1;
-            add(fieldZipCode, gbc);
-            gbc.gridx++;
-            gbc.insets = new Insets(5, 11, 5, 5);
-            add(fieldCity, gbc);
-            gbc.insets = margins;
-            gbc.gridwidth = 2;
-
-            /**************************
-             * Right buttons
-             *************************/
-            gbc.gridx = 12;
-            gbc.gridy = 0;
-            gbc.insets = new Insets(5, 50, 5, 5);
-            gbc.gridwidth = 1;
-            add(buttonSaveCustomer, gbc);
-            gbc.gridy++;
-            add(buttonCancelReg, gbc);
         }
 
-        /**
-         * Method for initializing buttons.
-         * Should only be run in the constructor,
-         * and only once before adding the buttons
-         * to the panel.
-         */
-        private void initRegFields(){
-            fieldID = new JTextField(15);
+        public void initTable(){
 
-            fieldOrgName = new JTextField(15);
-            fieldOrgName.setEditable(false);
-
-            fieldFname = new JTextField(15);
-            fieldFname.setEditable(false);
-
-            fieldSname = new JTextField(15);
-            fieldSname.setEditable(false);
-
-            fieldAdr = new JTextField(15);
-            fieldAdr.setEditable(false);
-
-            fieldTlf = new JTextField(15);
-            fieldTlf.setEditable(false);
-
-            fieldEmail = new JTextField(15);
-            fieldEmail.setEditable(false);
-
-            fieldZipCode = new JTextField(4);
-            fieldZipCode.setEditable(false);
-            fieldZipCode.addCaretListener(new Listener());
-
-            fieldCity = new JTextField(9);
-            fieldCity.setEditable(false);
-
-            fieldAccount = new JTextField(15);
-            fieldAccount.setEditable(false);
         }
-
 
 
         public void initButtons(){
             Dimension dimButton = new Dimension(90, 25);
             Dimension dimSelectionBox = new Dimension(150, 25);
-            /** Selction box **/
-            selectType = new JComboBox<>(selections);
-            selectType.setActionCommand("selectionBox");
-            selectType.addActionListener(listener);
-            selectType.setPreferredSize(dimSelectionBox);
 
-            /** Register button **/
-            buttonSaveCustomer = new JButton("Register");
-            buttonSaveCustomer.setPreferredSize(dimButton);
-            buttonSaveCustomer.addActionListener(listener);
-            buttonSaveCustomer.setActionCommand("saveCustomer");
-
-            /** Cancel button **/
-            buttonCancelReg = new JButton("Cancel");
-            buttonCancelReg.setPreferredSize(dimButton);
-            buttonCancelReg.addActionListener(listener);
-            buttonCancelReg.setActionCommand("cancelCustomer");
         }
     }
 
@@ -542,74 +315,18 @@ public class ChefGUI extends JFrame{
      *
      * Used with SalesmanGUI for handling actions.
      */
-    private class Listener implements ActionListener, CaretListener {
-        private Search search = new Search();
-        //<editor-fold defaultstate="collapsed" desc="This fold contains variables for making new customer">
-        private String orgName;
-        private String fName;
-        private String sName;
-        private String adr;
-        private String tlf;
-        private String email;
-        private String zip;
-        private String account;
-        private ZipCode zipCode;
-        //</editor-fold>
-
-        @Override
-        public void caretUpdate(CaretEvent e){
-            String city = search.searchForCity(zipCodes, fieldZipCode.getText());
-            fieldCity.setText(city);
-        }
+    private class Listener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e){
             String actionCommand = e.getActionCommand();
             switch (actionCommand){
-                case "selectionBox":
-                    String selected = (String)selectType.getSelectedItem();
-                    if(selected.equals("Private")){
-                        editablePrivate();
-                    }else if(selected.equals("Business")){
-                        setEditableAll(true);
-                    }else {
-                        setEditableAll(false);
-                    }
-                    break;
-                case "search":
-                    ArrayList<Person> searchList = search.searchCustomers(customers, fieldSearch.getText());
-                    tableSearch(searchList);
-                    break;
-                case "resetSearch":
-                    fieldSearch.setText("");
-                    tableSearch(customers);
-                    break;
-                case "openReg":
+                 case "openReg":
                     panelRegCustomer.setVisible(true);
                     setWinSize(dimBigWindow);
-                    resetNewCustomerFields();
-                    break;
-                case "package":
-                    SelectPackageDialog pd = new SelectPackageDialog(parent);
-                    int customerID = findCustomerID();
-                    if(customerID != -1){
-                        pd.setVisible(true);
-                        Package p = pd.getSelectedPackage();
-                        if(p != null){
-                            String deliveryDate = pd.getDeliveryDate();
-                            Order newOrder = new Order(deliveryDate, 0, p.getPackageID(), customerID, employeeID);
-                            if(db.regOrder(newOrder)){
-                                JOptionPane.showMessageDialog(null, "Order saved");
-                            }else{
-                                JOptionPane.showMessageDialog(null, "Could not reach database. Order deleted");
-                            }
-                        }
-                    }else{
-                        JOptionPane.showMessageDialog(null, "You have to select a customer in the table before placing an order.");
-                    }
                     break;
                 case "update":
-                    updateCustomerTable();
+                    updateOrderTable("Test");
                     fieldSearch.setText("");
                     break;
                 case "orders":
@@ -618,98 +335,17 @@ public class ChefGUI extends JFrame{
                 case "exit":
                     dispose();
                     break;
-                case "saveCustomer":
-                    // Hide the panel
-                    regCustomer();
-                    updateCustomerTable();
-                    break;
-                case "cancelCustomer":
-                    // Hide the panel
-                    panelRegCustomer.setVisible(false);
-                    setWinSize(dimSmallWindow);
-                    setEditableAll(false);
-                    resetNewCustomerFields();
-                    break;
                 default:
                     break;
             }
         }
 
-        private void regCustomer(){
-
-            if(fieldCity.getText().equals("")){
-                javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Could not find city with given zip code.");
-            } else {
-                if(selectType.getSelectedIndex() == 1){
-                    // Private Customer
-                    String fName = fieldFname.getText();
-                    String sName = fieldSname.getText();
-                    String adr = fieldAdr.getText();
-                    String zipCode = fieldZipCode.getText();
-                    String city = fieldCity.getText();
-                    String tlf = fieldTlf.getText();
-                    String email = fieldEmail.getText();
-                    PrivateCustomer newCustomer = new PrivateCustomer(fName, sName, adr, new ZipCode(zipCode, city), tlf, email);
-                    int check = vf.verifyCustomer(newCustomer);
-                    if(check == 0){
-                        // OK
-                        db.regPrivateCustomer(newCustomer);
-                        resetNewCustomerFields();
-                        panelRegCustomer.setVisible(false);
-                        setWinSize(dimSmallWindow);
-                        javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Customer saved.");
-                    } else {
-                        javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Check all input boxes.");
-                    }
-                }
-                else if(selectType.getSelectedIndex() == 2){
-                    // Business Customer
-                    String fName = fieldFname.getText();
-                    String sName = fieldSname.getText();
-                    String adr = fieldAdr.getText();
-                    String zipCode = fieldZipCode.getText();
-                    String city = fieldCity.getText();
-                    String tlf = fieldTlf.getText();
-                    String email = fieldEmail.getText();
-                    String account = fieldAccount.getText();
-                    String orgName = fieldOrgName.getText();
-                    BusinessCustomer newCustomer = new BusinessCustomer(fName, sName, adr, new ZipCode(zipCode, city), tlf, email, account, orgName);
-                    int check = vf.verifyCustomer(newCustomer);
-                    if(check == 0){
-                        // OK
-                        db.regBusinessCustomer(newCustomer);
-                        resetNewCustomerFields();
-                        panelRegCustomer.setVisible(false);
-                        setWinSize(dimSmallWindow);
-                        javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Customer saved.");
-                    } else {
-                        switch(check){
-                            case -2:
-                                javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Wrong length on telephone number.");
-                                break;
-                            case -3:
-                                javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Non-valid email address");
-                                break;
-                            case -4:
-                                javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Wrong length on invoice account");
-                                break;
-                            default:
-                                javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Something is wrong.");
-                                break;
-                        }
-                    }
-                }
-                else {
-                    javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Choose private or business customer.");
-                }
-            }
-        }
 
         private int findCustomerID(){
             int column = 0;
-            int row = tableCustomers.getSelectedRow();
+            int row = tableOrders.getSelectedRow();
             if(row >= 0){
-                int id = Integer.parseInt((String)tableCustomers.getValueAt(row, column));
+                int id = Integer.parseInt((String) tableOrders.getValueAt(row, column));
                 return id;
             } else {
                 return -1;
