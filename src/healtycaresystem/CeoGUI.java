@@ -425,9 +425,9 @@ public class CeoGUI extends JFrame {
     public void updateNumbers(){
         /*Income*/
         int privateSales = 101450;
-        int orgSales = 203700;
+        int orgSales = 253700;
         int totalSales = privateSales + orgSales;
-        int other = 20000;
+        int other = 45000;
         int totalIncome = totalSales + other;
 
         /*Expenses*/
@@ -490,55 +490,55 @@ public class CeoGUI extends JFrame {
         labelTotalIncome.setForeground(new Color(0.0f, 0.7f, 0.3f));
 
         /*Expenses*/
-        labelSalary = new JLabel(strSalary + ",-");
+        labelSalary = new JLabel("-" + strSalary + ",-");
         labelSalary.setForeground(new Color(1.0f, 0.0f, 0.0f));
 
-        labelIngredients = new JLabel(strIngredients + ",-");
+        labelIngredients = new JLabel("-" + strIngredients + ",-");
         labelIngredients.setForeground(new Color(1.0f, 0.0f, 0.0f));
 
-        labelGas = new JLabel(strGas + ",-");
+        labelGas = new JLabel("-" + strGas + ",-");
         labelGas.setForeground(new Color(1.0f, 0.0f, 0.0f));
 
-        labelElectricity = new JLabel(strElectricity + ",-");
+        labelElectricity = new JLabel("-" + strElectricity + ",-");
         labelElectricity.setForeground(new Color(1.0f, 0.0f, 0.0f));
 
-        labelEquipment = new JLabel(strEquipment + ",-");
+        labelEquipment = new JLabel("-" + strEquipment + ",-");
         labelEquipment.setForeground(new Color(1.0f, 0.0f, 0.0f));
 
-        labelMaintenance = new JLabel(strMaintenance + ",-");
+        labelMaintenance = new JLabel("-" + strMaintenance + ",-");
         labelMaintenance.setForeground(new Color(1.0f, 0.0f, 0.0f));
 
-        labelInsurance = new JLabel(strInsurance + ",-");
+        labelInsurance = new JLabel("-" + strInsurance + ",-");
         labelInsurance.setForeground(new Color(1.0f, 0.0f, 0.0f));
 
-        labelRent = new JLabel(strRent + ",-");
+        labelRent = new JLabel("-" + strRent + ",-");
         labelRent.setForeground(new Color(1.0f, 0.0f, 0.0f));
 
-        labelOtherExpenses = new JLabel(strOtherExpenses + ",-");
+        labelOtherExpenses = new JLabel("-" + strOtherExpenses + ",-");
         labelOtherExpenses.setForeground(new Color(1.0f, 0.0f, 0.0f));
 
-        labelTotalExpences = new JLabel(strTotalExpenses + ",-");
+        labelTotalExpences = new JLabel("-" + strTotalExpenses + ",-");
         labelTotalExpences.setForeground(new Color(1.0f, 0.0f, 0.0f));
 
         /*Revenue*/
         labelBeforeTaxes = new JLabel(strBeforeTaxes + ",-");
-        if(beforeTaxes < 0){
+        if(beforeTaxes > 0){
             labelBeforeTaxes.setForeground(new Color(0.0f, 0.7f, 0.3f));
         }else{
             labelBeforeTaxes.setForeground(new Color(1.0f, 0.0f, 0.0f));
         }
 
-        labelVAT = new JLabel(strVAT + ",-");
+        labelVAT = new JLabel("-" + strVAT + ",-");
         labelVAT.setForeground(new Color(1.0f, 0.0f, 0.0f));
 
-        labelTaxes = new JLabel(strTaxes + ",-");
+        labelTaxes = new JLabel("-" + strTaxes + ",-");
         labelTaxes.setForeground(new Color(1.0f, 0.0f, 0.0f));
 
         labelAfterTaxes = new JLabel(strAfterTaxes + ",-");
         if(afterTaxes > 0){
-            labelBeforeTaxes.setForeground(new Color(0.0f, 0.7f, 0.3f));
+            labelAfterTaxes.setForeground(new Color(0.0f, 0.7f, 0.3f));
         }else{
-            labelBeforeTaxes.setForeground(new Color(1.0f, 0.0f, 0.0f));
+            labelAfterTaxes.setForeground(new Color(1.0f, 0.0f, 0.0f));
         }
     }
 
