@@ -31,15 +31,24 @@ public class CeoGUI extends JFrame {
             labelTotalSales,
             labelIncomeOther,
             labelTotalIncome,
+
+            /*Expenses*/
             labelSalary,
             labelIngredients,
             labelGas,
             labelElectricity,
+            labelEquipment,
             labelMaintenance,
             labelInsurance,
             labelRent,
-            labelExpencesOther,
-            labelTotalExpences;
+            labelOtherExpenses,
+            labelTotalExpences,
+
+            /*Revenue*/
+            labelBeforeTaxes,
+            labelVAT,
+            labelTaxes,
+            labelAfterTaxes;
 
     
     //</editor-fold>
@@ -221,45 +230,94 @@ public class CeoGUI extends JFrame {
             GridBagConstraints gb = new GridBagConstraints();
             gb.anchor = GridBagConstraints.FIRST_LINE_START;
 
+            updateNumbers();
+
             gb.gridx = 0;
             gb.gridy = 0;
             gb.insets = margins;
+
             prompt = new JLabel("Salary:");
             add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelSalary, gb);
 
             gb.gridy++;
+            gb.gridx--;
+            gb.anchor = GridBagConstraints.LINE_START;
             prompt = new JLabel("Ingredients:");
             add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelIngredients, gb);
 
             gb.gridy++;
+            gb.gridx--;
+            gb.anchor = GridBagConstraints.LINE_START;
             prompt = new JLabel("Gas:");
             add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelGas, gb);
 
             gb.gridy++;
+            gb.gridx--;
+            gb.anchor = GridBagConstraints.LINE_START;
             prompt = new JLabel("Electricity:");
             add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelElectricity, gb);
 
             gb.gridy++;
+            gb.gridx--;
+            gb.anchor = GridBagConstraints.LINE_START;
             prompt = new JLabel("Equipment:");
             add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelEquipment, gb);
 
             gb.gridy++;
+            gb.gridx--;
+            gb.anchor = GridBagConstraints.LINE_START;
             prompt = new JLabel("Maintenance:");
             add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelMaintenance, gb);
 
             gb.gridy++;
+            gb.gridx--;
+            gb.anchor = GridBagConstraints.LINE_START;
             prompt = new JLabel("Insurance:");
             add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelInsurance, gb);
 
             gb.gridy++;
+            gb.gridx--;
+            gb.anchor = GridBagConstraints.LINE_START;
             prompt = new JLabel("Rent:");
             add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelRent, gb);
 
             gb.gridy++;
+            gb.gridx--;
+            gb.anchor = GridBagConstraints.LINE_START;
             prompt = new JLabel("Other:");
             add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelOtherExpenses, gb);
 
             gb.gridy++;
+            gb.gridx--;
+            gb.gridwidth = 2;
+            gb.anchor = GridBagConstraints.LINE_START;
             gb.fill = GridBagConstraints.BOTH;
             JSeparator line = new JSeparator(JSeparator.HORIZONTAL);
             line.setBackground(Color.BLACK);
@@ -270,27 +328,13 @@ public class CeoGUI extends JFrame {
             gb.weighty = 1.0;
             gb.weightx = 1.0;
             gb.gridy++;
+            gb.gridwidth = 1;
+            gb.fill = GridBagConstraints.NONE;
             prompt = new JLabel("Total:");
             add(prompt, gb);
-
-            /**
-             * Second column.
-             * Contains all numbers in the expences overview.
-             */
-            gb.gridy = 0;
-            gb.gridx = 1;
-            gb.anchor = GridBagConstraints.FIRST_LINE_END;
-            //add(labelSalary, gb);
-
-            gb.weighty = 1.0;
-            gb.weightx = 1.0;
-            gb.gridy++;
-            prompt = new JLabel("");
-            add(prompt, gb);
-        }
-
-        private void updateNumbers(){
-
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelTotalExpences, gb);
         }
     }
 
@@ -305,26 +349,49 @@ public class CeoGUI extends JFrame {
 
             gb.anchor = GridBagConstraints.FIRST_LINE_START;
 
+            updateNumbers();
+
             gb.gridx = 0;
             gb.gridy = 0;
             gb.insets = margins;
 
             prompt = new JLabel("Revenue before taxes:");
             add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelBeforeTaxes, gb);
 
             gb.gridy++;
+            gb.gridx--;
+            gb.anchor = GridBagConstraints.LINE_START;
             prompt = new JLabel("VAT:");
             add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelVAT, gb);
 
             gb.gridy++;
+            gb.gridx--;
+            gb.anchor = GridBagConstraints.LINE_START;
             prompt = new JLabel("Taxes:");
             add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelTaxes, gb);
 
             gb.gridy++;
+            gb.gridx--;
+            gb.anchor = GridBagConstraints.LINE_START;
+            add(new JLabel(" "), gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
             add(new JLabel(" "), gb);
 
             /** Seperator Line **/
             gb.gridy++;
+            gb.gridx--;
+            gb.gridwidth = 2;
+            gb.anchor = GridBagConstraints.LINE_START;
             gb.fill = GridBagConstraints.BOTH;
             JSeparator line = new JSeparator(JSeparator.HORIZONTAL);
             line.setBackground(Color.BLACK);
@@ -332,33 +399,81 @@ public class CeoGUI extends JFrame {
             line.setPreferredSize(dimLine);
             add(line, gb);
 
+            gb.gridwidth = 1;
             gb.gridy++;
+            gb.fill = GridBagConstraints.NONE;
             prompt = new JLabel("Revenue after taxes:");
             add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelAfterTaxes, gb);
 
             gb.weighty = 1.0;
             gb.weightx = 1.0;
             gb.gridy++;
+            gb.gridy--;
+            gb.anchor = GridBagConstraints.LINE_START;
             add(new JLabel(""), gb);
         }
+
+
     }
 
     /**
      * Method for updating numbers in the overview.
      */
     public void updateNumbers(){
-        int privateSales = 14500;
-        int orgSales = 37000;
+        /*Income*/
+        int privateSales = 101450;
+        int orgSales = 203700;
         int totalSales = privateSales + orgSales;
-        int other = 1000;
+        int other = 20000;
         int totalIncome = totalSales + other;
 
+        /*Expenses*/
+        int salary = 54600;
+        int ingredients = 45000;
+        int gas = 13000;
+        int electricity = 17000;
+        int equipment = 30000;
+        int maintenance = 20000;
+        int insurance = 40000;
+        int rent = 45000;
+        int otherExpenses = 13000;
+        int totalExpenses = salary + ingredients + gas + electricity + equipment + maintenance + insurance + rent + otherExpenses;
+
+        /*Revenue*/
+        int beforeTaxes = totalIncome - totalExpenses;
+        int VAT = (int)(totalIncome * 0.25);
+        int taxes = (int)((totalIncome - VAT) * 0.28);
+        int afterTaxes = beforeTaxes - VAT - taxes;
+
+        /*Income*/
         String strPrivateSales = String.format("%,d", privateSales);
         String strOrgSales = String.format("%,d", orgSales);
         String strTotalSales = String.format("%,d", totalSales);
         String strOther = String.format("%,d", other);
         String strTotalIncome = String.format("%,d", totalIncome);
 
+        /*Expenses*/
+        String strSalary = String.format("%,d", salary);
+        String strIngredients = String.format("%,d", ingredients);
+        String strGas = String.format("%,d", gas);
+        String strElectricity = String.format("%,d", electricity);
+        String strEquipment = String.format("%,d", equipment);
+        String strMaintenance = String.format("%,d", maintenance);
+        String strInsurance = String.format("%,d", insurance);
+        String strRent = String.format("%,d", rent);
+        String strOtherExpenses = String.format("%,d", otherExpenses);
+        String strTotalExpenses = String.format("%,d", totalExpenses);
+
+        /*Revenue*/
+        String strBeforeTaxes = String.format("%,d", beforeTaxes);
+        String strVAT = String.format("%,d", VAT);
+        String strTaxes = String.format("%,d", taxes);
+        String strAfterTaxes = String.format("%,d", afterTaxes);
+
+        /*Income*/
         labelPrivateSales = new JLabel(strPrivateSales + ",-");
         labelPrivateSales.setForeground(new Color(0.0f, 0.7f, 0.3f));
 
@@ -373,6 +488,58 @@ public class CeoGUI extends JFrame {
 
         labelTotalIncome = new JLabel(strTotalIncome + ",-");
         labelTotalIncome.setForeground(new Color(0.0f, 0.7f, 0.3f));
+
+        /*Expenses*/
+        labelSalary = new JLabel(strSalary + ",-");
+        labelSalary.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        labelIngredients = new JLabel(strIngredients + ",-");
+        labelIngredients.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        labelGas = new JLabel(strGas + ",-");
+        labelGas.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        labelElectricity = new JLabel(strElectricity + ",-");
+        labelElectricity.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        labelEquipment = new JLabel(strEquipment + ",-");
+        labelEquipment.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        labelMaintenance = new JLabel(strMaintenance + ",-");
+        labelMaintenance.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        labelInsurance = new JLabel(strInsurance + ",-");
+        labelInsurance.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        labelRent = new JLabel(strRent + ",-");
+        labelRent.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        labelOtherExpenses = new JLabel(strOtherExpenses + ",-");
+        labelOtherExpenses.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        labelTotalExpences = new JLabel(strTotalExpenses + ",-");
+        labelTotalExpences.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        /*Revenue*/
+        labelBeforeTaxes = new JLabel(strBeforeTaxes + ",-");
+        if(beforeTaxes < 0){
+            labelBeforeTaxes.setForeground(new Color(0.0f, 0.7f, 0.3f));
+        }else{
+            labelBeforeTaxes.setForeground(new Color(1.0f, 0.0f, 0.0f));
+        }
+
+        labelVAT = new JLabel(strVAT + ",-");
+        labelVAT.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        labelTaxes = new JLabel(strTaxes + ",-");
+        labelTaxes.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        labelAfterTaxes = new JLabel(strAfterTaxes + ",-");
+        if(afterTaxes > 0){
+            labelBeforeTaxes.setForeground(new Color(0.0f, 0.7f, 0.3f));
+        }else{
+            labelBeforeTaxes.setForeground(new Color(1.0f, 0.0f, 0.0f));
+        }
     }
 
     /** Is inside the Economic overview **/
