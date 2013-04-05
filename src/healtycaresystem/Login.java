@@ -182,6 +182,9 @@ public class Login extends javax.swing.JFrame {
                         break;
                     case 4:
                         System.out.println("CEO");
+                        employeeID = user.getEmployeeID();
+                        CeoGUI windowCEO = new CeoGUI(employeeID);
+                        windowCEO.setVisible(true);
                         break;
                 }
             }

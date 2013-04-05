@@ -36,17 +36,6 @@ public class Search {
         return resultList;
     }
 
-    public ZipCode searchZip(ArrayList<ZipCode> list, String criteria){
-
-        for(ZipCode z : list){
-            if(z.getZipCode().equals(criteria.trim())){
-                return z;
-            }
-        }
-
-        return null;
-    }
-
     public String searchForCity(ArrayList<ZipCode> list, String zip){
         for(ZipCode z : list){
             if(z.getZipCode().equalsIgnoreCase(zip)){

@@ -11,10 +11,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class SalesmanGUI extends JFrame{
+public class SalesmanGUI extends JFrame {
 
     //<editor-fold defaultstate="collapsed" desc="This fold contains object variables">
-    private ArrayList<Person> customers;
+    private CustomerRegister customerRegister = new CustomerRegister();
     private ArrayList<ZipCode> zipCodes;
     private DatabaseOperations db = new DatabaseOperations();
     private String[] tableColNames = {"Customer ID", "Organization Name", "First Name", "Surname", "Address", "Telephone Number", "E-mail"};
@@ -31,12 +31,16 @@ public class SalesmanGUI extends JFrame{
 
     private JLabel prompt;
 
-    /** Customer table and default table model.**/
+    /**
+     * Customer table and default table model.*
+     */
     private JTable tableCustomers;
     private JScrollPane scrollTableCustomers;
     private DefaultTableModel tm;
 
-    /** Components for PanelRegCustomer **/
+    /**
+     * Components for PanelRegCustomer *
+     */
     private JTextField
             fieldID, fieldOrgName, fieldFname, fieldSname,
             fieldAdr, fieldTlf, fieldEmail, fieldZipCode, fieldAccount;
@@ -46,7 +50,9 @@ public class SalesmanGUI extends JFrame{
     private JTextField fieldCity;
     private JComboBox<String> selectType;
 
-    /** Components for PanelActions **/
+    /**
+     * Components for PanelActions *
+     */
     private JTextField fieldSearch;
     private JButton
             buttonSearch,
@@ -69,7 +75,7 @@ public class SalesmanGUI extends JFrame{
     /**
      * Constructor for SalesmanGUI.
      */
-    public SalesmanGUI(int employeeID){
+    public SalesmanGUI(int employeeID) {
         this.employeeID = employeeID;
         zipCodes = db.getZipCodes();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -105,7 +111,7 @@ public class SalesmanGUI extends JFrame{
      * Initializes the panels to be used in salesman GUI.
      * Should only be run once on startup.
      */
-    private void initPanels(){
+    private void initPanels() {
         panelTable = new PanelTable();
         panelActions = new PanelActions();
         panelRegCustomer = new PanelRegCustomer();
@@ -116,7 +122,7 @@ public class SalesmanGUI extends JFrame{
      *
      * @param size - Dimension
      */
-    private void setWinSize(Dimension size){
+    private void setWinSize(Dimension size) {
         setSize(size);
     }
 
@@ -125,14 +131,12 @@ public class SalesmanGUI extends JFrame{
      * This method fetches all customers from the database
      * and populates the table.
      */
-    public void updateCustomerTable(){
+    public void updateCustomerTable() {
         // Clear table.
-        for(int i = tm.getRowCount() - 1; i >=0; i--){
+        for (int i = tm.getRowCount() - 1; i >= 0; i--) {
             tm.removeRow(i);
         }
-
-        customers = db.getAllCustomers();
-        for(Person p : customers){
+        for (Person p : customerRegister.updateListCustomers()) {
             String orgName = "Private Customer";
             String account = "Private Customer";
             String id = Integer.toString(p.getCustomerID());
@@ -141,7 +145,7 @@ public class SalesmanGUI extends JFrame{
             String adr = p.getAddress();
             String tlf = p.getTelephoneNumber();
             String email = p.getEmail();
-            if(p instanceof BusinessCustomer){
+            if (p instanceof BusinessCustomer) {
                 orgName = ((BusinessCustomer) p).getOrgName();
                 account = ((BusinessCustomer) p).getInvoiceAccount();
             }
@@ -150,7 +154,7 @@ public class SalesmanGUI extends JFrame{
         }
     }
 
-    public void setEditableAll(boolean editable){
+    public void setEditableAll(boolean editable) {
         fieldOrgName.setEditable(editable);
         fieldFname.setEditable(editable);
         fieldSname.setEditable(editable);
@@ -162,7 +166,7 @@ public class SalesmanGUI extends JFrame{
         fieldAccount.setEditable(editable);
     }
 
-    public void editablePrivate(){
+    public void editablePrivate() {
         fieldOrgName.setEditable(false);
         fieldFname.setEditable(true);
         fieldSname.setEditable(true);
@@ -179,13 +183,13 @@ public class SalesmanGUI extends JFrame{
      *
      * @param newList - ArrayList<Customer>
      */
-    public void tableSearch(ArrayList<Person> newList){
+    public void tableSearch(ArrayList<Person> newList) {
         // Clear table.
-        for(int i = tm.getRowCount() - 1; i >=0; i--){
+        for (int i = tm.getRowCount() - 1; i >= 0; i--) {
             tm.removeRow(i);
         }
         // Populate table.
-        for(Person p : newList){
+        for (Person p : newList) {
             String orgName = "Private Customer";
             String account = "Private Customer";
             String id = Integer.toString(p.getCustomerID());
@@ -194,7 +198,7 @@ public class SalesmanGUI extends JFrame{
             String adr = p.getAddress();
             String tlf = p.getTelephoneNumber();
             String email = p.getEmail();
-            if(p instanceof BusinessCustomer){
+            if (p instanceof BusinessCustomer) {
                 orgName = ((BusinessCustomer) p).getOrgName();
                 account = ((BusinessCustomer) p).getInvoiceAccount();
             }
@@ -206,7 +210,7 @@ public class SalesmanGUI extends JFrame{
     /**
      * Method to reset the fields in PanelRegCustomer.
      */
-    public void resetNewCustomerFields(){
+    public void resetNewCustomerFields() {
         fieldOrgName.setText("");
         fieldFname.setText("");
         fieldSname.setText("");
@@ -220,16 +224,18 @@ public class SalesmanGUI extends JFrame{
 
     /**
      * PanelTable class.
-     *
+     * <p/>
      * Panel for SalesmanGUI.
      * Contains a table with customers.
      */
     private class PanelTable extends JPanel {
-        /** GridBagConstraint for PanelTable **/
+        /**
+         * GridBagConstraint for PanelTable *
+         */
         private GridBagConstraints gbc = new GridBagConstraints();
         private Insets margins = new Insets(5, 5, 5, 5);
 
-        public PanelTable(){
+        public PanelTable() {
             // Constructor for PanelTable
             setLayout(new GridBagLayout());
             initTable();
@@ -244,11 +250,11 @@ public class SalesmanGUI extends JFrame{
          * Only to be used in the constructor
          * before adding the table to the window.
          */
-        private void initTable(){
+        private void initTable() {
             // Overrides the method isCellEditable. This sets the cell to not editable.
-            tm = new DefaultTableModel(tableColNames, 0){
+            tm = new DefaultTableModel(tableColNames, 0) {
                 @Override
-                public boolean isCellEditable(int row, int column){
+                public boolean isCellEditable(int row, int column) {
                     return false;
                 }
             };
@@ -261,12 +267,11 @@ public class SalesmanGUI extends JFrame{
         }
 
 
-
     }
 
     /**
      * PanelActions class.
-     *
+     * <p/>
      * Panel for SalesmanGUI.
      * Contains search fields and buttons for the standard GUI.
      */
@@ -275,7 +280,7 @@ public class SalesmanGUI extends JFrame{
         private Insets normMargins = new Insets(5, 5, 5, 5);
         private Insets extMargins = new Insets(5, 150, 5, 5);
 
-        public PanelActions(){
+        public PanelActions() {
             // Constructor for PanelActions
             setLayout(new GridBagLayout());
             initComponents();
@@ -321,7 +326,7 @@ public class SalesmanGUI extends JFrame{
             add(buttonExit, gbc);
         }
 
-        private void initComponents(){
+        private void initComponents() {
             fieldSearch = new JTextField(15);
             fieldSearch.addActionListener(listener);
             fieldSearch.setActionCommand("search");
@@ -360,16 +365,18 @@ public class SalesmanGUI extends JFrame{
 
     /**
      * PanelRegCustomer class.
-     *
+     * <p/>
      * Panel for SalesmanGUI.
      * Contains text fields and buttons for registering a new customer.
      */
     private class PanelRegCustomer extends JPanel {
-        /** GridBagConstraint for PanelRegCustomer **/
+        /**
+         * GridBagConstraint for PanelRegCustomer *
+         */
         private GridBagConstraints gbc = new GridBagConstraints();
         private Insets margins = new Insets(5, 5, 5, 5);
 
-        public PanelRegCustomer(){
+        public PanelRegCustomer() {
             // Constructor for PanelRegCustomer
             setLayout(new GridBagLayout());
             setPreferredSize(new Dimension(1024, 200));
@@ -444,7 +451,7 @@ public class SalesmanGUI extends JFrame{
             /** E-Mail **/
             gbc.gridx -= 2;
             gbc.gridy++;
-            prompt = new JLabel("E-Mail:");
+            prompt = new JLabel("*E-Mail:");
             add(prompt, gbc);
             gbc.gridx += 2;
             add(fieldEmail, gbc);
@@ -480,7 +487,7 @@ public class SalesmanGUI extends JFrame{
          * and only once before adding the buttons
          * to the panel.
          */
-        private void initRegFields(){
+        private void initRegFields() {
             fieldID = new JTextField(15);
 
             fieldOrgName = new JTextField(15);
@@ -513,8 +520,7 @@ public class SalesmanGUI extends JFrame{
         }
 
 
-
-        public void initButtons(){
+        public void initButtons() {
             Dimension dimButton = new Dimension(90, 25);
             Dimension dimSelectionBox = new Dimension(150, 25);
             /** Selction box **/
@@ -539,50 +545,39 @@ public class SalesmanGUI extends JFrame{
 
     /**
      * Button Listener class
-     *
+     * <p/>
      * Used with SalesmanGUI for handling actions.
      */
     private class Listener implements ActionListener, CaretListener {
         private Search search = new Search();
-        //<editor-fold defaultstate="collapsed" desc="This fold contains variables for making new customer">
-        private String orgName;
-        private String fName;
-        private String sName;
-        private String adr;
-        private String tlf;
-        private String email;
-        private String zip;
-        private String account;
-        private ZipCode zipCode;
-        //</editor-fold>
 
         @Override
-        public void caretUpdate(CaretEvent e){
+        public void caretUpdate(CaretEvent e) {
             String city = search.searchForCity(zipCodes, fieldZipCode.getText());
             fieldCity.setText(city);
         }
 
         @Override
-        public void actionPerformed(ActionEvent e){
+        public void actionPerformed(ActionEvent e) {
             String actionCommand = e.getActionCommand();
-            switch (actionCommand){
+            switch (actionCommand) {
                 case "selectionBox":
-                    String selected = (String)selectType.getSelectedItem();
-                    if(selected.equals("Private")){
+                    String selected = (String) selectType.getSelectedItem();
+                    if (selected.equals("Private")) {
                         editablePrivate();
-                    }else if(selected.equals("Business")){
+                    } else if (selected.equals("Business")) {
                         setEditableAll(true);
-                    }else {
+                    } else {
                         setEditableAll(false);
                     }
                     break;
                 case "search":
-                    ArrayList<Person> searchList = search.searchCustomers(customers, fieldSearch.getText());
+                    ArrayList<Person> searchList = search.searchCustomers(customerRegister.getListCustomers(), fieldSearch.getText());
                     tableSearch(searchList);
                     break;
                 case "resetSearch":
                     fieldSearch.setText("");
-                    tableSearch(customers);
+                    tableSearch(customerRegister.getListCustomers());
                     break;
                 case "openReg":
                     panelRegCustomer.setVisible(true);
@@ -592,19 +587,19 @@ public class SalesmanGUI extends JFrame{
                 case "package":
                     SelectPackageDialog pd = new SelectPackageDialog(parent);
                     int customerID = findCustomerID();
-                    if(customerID != -1){
+                    if (customerID != -1) {
                         pd.setVisible(true);
                         Package p = pd.getSelectedPackage();
-                        if(p != null){
+                        if (p != null) {
                             String deliveryDate = pd.getDeliveryDate();
                             Order newOrder = new Order(deliveryDate, 0, p.getPackageID(), customerID, employeeID);
-                            if(db.regOrder(newOrder)){
+                            if (db.regOrder(newOrder)) {
                                 JOptionPane.showMessageDialog(null, "Order saved");
-                            }else{
+                            } else {
                                 JOptionPane.showMessageDialog(null, "Could not reach database. Order deleted");
                             }
                         }
-                    }else{
+                    } else {
                         JOptionPane.showMessageDialog(null, "You have to select a customer in the table before placing an order.");
                     }
                     break;
@@ -635,12 +630,11 @@ public class SalesmanGUI extends JFrame{
             }
         }
 
-        private void regCustomer(){
-
-            if(fieldCity.getText().equals("")){
+        private void regCustomer() {
+            if (fieldCity.getText().equals("")) {
                 javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Could not find city with given zip code.");
             } else {
-                if(selectType.getSelectedIndex() == 1){
+                if (selectType.getSelectedIndex() == 1) {
                     // Private Customer
                     String fName = fieldFname.getText();
                     String sName = fieldSname.getText();
@@ -650,19 +644,29 @@ public class SalesmanGUI extends JFrame{
                     String tlf = fieldTlf.getText();
                     String email = fieldEmail.getText();
                     PrivateCustomer newCustomer = new PrivateCustomer(fName, sName, adr, new ZipCode(zipCode, city), tlf, email);
-                    int check = vf.verifyCustomer(newCustomer);
-                    if(check == 0){
-                        // OK
-                        db.regPrivateCustomer(newCustomer);
-                        resetNewCustomerFields();
-                        panelRegCustomer.setVisible(false);
-                        setWinSize(dimSmallWindow);
-                        javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Customer saved.");
-                    } else {
-                        javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Check all input boxes.");
+                    int check = customerRegister.regPrivateCustomer(newCustomer);
+                    // TODO skriv om til switch.
+                    switch(check){
+                        case 0:
+                            resetNewCustomerFields();
+                            panelRegCustomer.setVisible(false);
+                            setWinSize(dimSmallWindow);
+                            javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Customer saved.");
+                            break;
+                        case -1:
+                            javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Error when saving customer to database.\nContact admin.");
+                            break;
+                        case -2:
+                            javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Telephone number must be 8 numbers.");
+                            break;
+                        case -3:
+                            javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Wrong format on e-mail address.");
+                            break;
+                        default:
+                            javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Something has gone wrong.\nContact admin.");
+                            break;
                     }
-                }
-                else if(selectType.getSelectedIndex() == 2){
+                } else if (selectType.getSelectedIndex() == 2) {
                     // Business Customer
                     String fName = fieldFname.getText();
                     String sName = fieldSname.getText();
@@ -674,42 +678,41 @@ public class SalesmanGUI extends JFrame{
                     String account = fieldAccount.getText();
                     String orgName = fieldOrgName.getText();
                     BusinessCustomer newCustomer = new BusinessCustomer(fName, sName, adr, new ZipCode(zipCode, city), tlf, email, account, orgName);
-                    int check = vf.verifyCustomer(newCustomer);
-                    if(check == 0){
-                        // OK
-                        db.regBusinessCustomer(newCustomer);
-                        resetNewCustomerFields();
-                        panelRegCustomer.setVisible(false);
-                        setWinSize(dimSmallWindow);
-                        javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Customer saved.");
-                    } else {
-                        switch(check){
-                            case -2:
-                                javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Wrong length on telephone number.");
-                                break;
-                            case -3:
-                                javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Non-valid email address");
-                                break;
-                            case -4:
-                                javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Wrong length on invoice account");
-                                break;
-                            default:
-                                javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Something is wrong.");
-                                break;
-                        }
+                    int check = customerRegister.regBusinessCustomer(newCustomer);
+                    switch (check) {
+                        case 0:
+                            resetNewCustomerFields();
+                            panelRegCustomer.setVisible(false);
+                            setWinSize(dimSmallWindow);
+                            javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Customer saved.");
+                            break;
+                        case -1:
+                            javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Error when saving customer to database.\nContact admin.");
+                            break;
+                        case -2:
+                            javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Wrong length on telephone number.");
+                            break;
+                        case -3:
+                            javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Wrong format on e-mail address.");
+                            break;
+                        case -4:
+                            javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Wrong length on invoice account");
+                            break;
+                        default:
+                            javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Something has gone wrong.\nContact admin.");
+                            break;
                     }
-                }
-                else {
+                } else {
                     javax.swing.JOptionPane.showMessageDialog(panelRegCustomer, "Choose private or business customer.");
                 }
             }
         }
 
-        private int findCustomerID(){
+        private int findCustomerID() {
             int column = 0;
             int row = tableCustomers.getSelectedRow();
-            if(row >= 0){
-                int id = Integer.parseInt((String)tableCustomers.getValueAt(row, column));
+            if (row >= 0) {
+                int id = Integer.parseInt((String) tableCustomers.getValueAt(row, column));
                 return id;
             } else {
                 return -1;

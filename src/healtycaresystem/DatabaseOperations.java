@@ -17,8 +17,8 @@ import java.sql.*;
  */
 public class DatabaseOperations {
 
-    private String dbDriver = "org.apache.derby.jdbc.ClientDriver";
-    private String dbName = "jdbc:derby://db.stud.aitel.hist.no/healthycaresystems;user=teamone;password=1ForTheWin";
+    private final String dbDriver = "org.apache.derby.jdbc.ClientDriver";
+    private final String dbName = "jdbc:derby://db.stud.aitel.hist.no/healthycaresystems;user=teamone;password=1ForTheWin";
     private DatabaseManagement db;
     private final String selectAllCustomers = "select * from customers";
     private final String sqlSelectZip = "select * from zip_code order by zip_code";
@@ -211,12 +211,6 @@ public class DatabaseOperations {
 
     }
 
-    public void regZip(String zip, String city){
-        db.openConnection();
-        String sqlInsertZip = "INSERT INTO zip_code(zip_code, city) VALUES('"+zip+"','"+city+"')";
-        db.doUpdate(sqlInsertZip);
-        db.closeConnection();
-    }
     // Metode for å hente alle ansatte
     // Metode for å legge inn ny ansatt
     // Metode for å hente pakker

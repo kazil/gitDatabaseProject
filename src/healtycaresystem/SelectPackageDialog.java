@@ -142,14 +142,26 @@ public class SelectPackageDialog extends JDialog {
 
     private class PanelButtons extends JPanel{
         public PanelButtons(){
-            setLayout(new FlowLayout());
+            setLayout(new GridBagLayout());
+            GridBagConstraints gb = new GridBagConstraints();
+
             initCombos();
-            add(new JLabel("Select Delivery Date:"));
-            add(comboYear);
-            add(comboMonth);
-            add(comboDays);
-            add(buttonSelect);
-            add(buttonCancel);
+            gb.gridx = 0;
+            gb.gridy = 0;
+            add(new JLabel("Select Start Date:"), gb);
+            gb.gridx++;
+            add(comboYear, gb);
+            gb.gridx++;
+            add(comboMonth, gb);
+            gb.gridx++;
+            add(comboDays, gb);
+
+            gb.gridx = 0;
+            gb.gridy++;
+            add(buttonSelect, gb);
+            gb.gridx++;
+            add(buttonCancel, gb);
+
             pack();
         }
     }
@@ -160,8 +172,8 @@ public class SelectPackageDialog extends JDialog {
             String actionCommand = e.getActionCommand();
             switch(actionCommand){
                 case "ok":
-                    if(getDeliveryDate()){
-                        if(getSelectedPackage()){
+                    if(verifyDeliveryDate()){
+                        if(verifySelectedPackage()){
                             dispose();
                         }else{
                             javax.swing.JOptionPane.showMessageDialog(null, "Select a package.");
@@ -178,7 +190,7 @@ public class SelectPackageDialog extends JDialog {
             }
         }
 
-        private boolean getDeliveryDate(){
+        private boolean verifyDeliveryDate(){
             int year = Integer.parseInt((String) comboYear.getSelectedItem());
             int month = comboMonth.getSelectedIndex()+1;
             int day = comboDays.getSelectedIndex()+1;
@@ -189,7 +201,7 @@ public class SelectPackageDialog extends JDialog {
             return false;
         }
 
-        private boolean getSelectedPackage(){
+        private boolean verifySelectedPackage(){
             int column = 0;
             int row = tablePackages.getSelectedRow();
             if(row >= 0){
