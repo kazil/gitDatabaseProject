@@ -30,7 +30,16 @@ public class CeoGUI extends JFrame {
             labelOrgSales,
             labelTotalSales,
             labelIncomeOther,
-            labelTotalIncome;
+            labelTotalIncome,
+            labelSalary,
+            labelIngredients,
+            labelGas,
+            labelElectricity,
+            labelMaintenance,
+            labelInsurance,
+            labelRent,
+            labelExpencesOther,
+            labelTotalExpences;
 
     
     //</editor-fold>
@@ -200,35 +209,6 @@ public class CeoGUI extends JFrame {
             gb.anchor = GridBagConstraints.LINE_START;
             add(new JLabel(""), gb);
         }
-
-        private void updateNumbers(){
-            int privateSales = 14500;
-            int orgSales = 37000;
-            int totalSales = privateSales + orgSales;
-            int other = 1000;
-            int totalIncome = totalSales + other;
-
-            String strPrivateSales = String.format("%,d", privateSales);
-            String strOrgSales = String.format("%,d", orgSales);
-            String strTotalSales = String.format("%,d", totalSales);
-            String strOther = String.format("%,d", other);
-            String strTotalIncome = String.format("%,d", totalIncome);
-
-            labelPrivateSales = new JLabel(strPrivateSales + ",-");
-            labelPrivateSales.setForeground(new Color(0.0f, 0.7f, 0.3f));
-
-            labelOrgSales = new JLabel(strOrgSales + ",-");
-            labelOrgSales.setForeground(new Color(0.0f, 0.7f, 0.3f));
-
-            labelTotalSales = new JLabel(strTotalSales + ",-");
-            labelTotalSales.setForeground(new Color(0.0f, 0.7f, 0.3f));
-
-            labelIncomeOther = new JLabel(strOther + ",-");
-            labelIncomeOther.setForeground(new Color(0.0f, 0.7f, 0.3f));
-
-            labelTotalIncome = new JLabel(strTotalIncome + ",-");
-            labelTotalIncome.setForeground(new Color(0.0f, 0.7f, 0.3f));
-        }
     }
 
     /** Is inside the Economic overview. **/
@@ -292,6 +272,25 @@ public class CeoGUI extends JFrame {
             gb.gridy++;
             prompt = new JLabel("Total:");
             add(prompt, gb);
+
+            /**
+             * Second column.
+             * Contains all numbers in the expences overview.
+             */
+            gb.gridy = 0;
+            gb.gridx = 1;
+            gb.anchor = GridBagConstraints.FIRST_LINE_END;
+            //add(labelSalary, gb);
+
+            gb.weighty = 1.0;
+            gb.weightx = 1.0;
+            gb.gridy++;
+            prompt = new JLabel("");
+            add(prompt, gb);
+        }
+
+        private void updateNumbers(){
+
         }
     }
 
@@ -342,6 +341,38 @@ public class CeoGUI extends JFrame {
             gb.gridy++;
             add(new JLabel(""), gb);
         }
+    }
+
+    /**
+     * Method for updating numbers in the overview.
+     */
+    public void updateNumbers(){
+        int privateSales = 14500;
+        int orgSales = 37000;
+        int totalSales = privateSales + orgSales;
+        int other = 1000;
+        int totalIncome = totalSales + other;
+
+        String strPrivateSales = String.format("%,d", privateSales);
+        String strOrgSales = String.format("%,d", orgSales);
+        String strTotalSales = String.format("%,d", totalSales);
+        String strOther = String.format("%,d", other);
+        String strTotalIncome = String.format("%,d", totalIncome);
+
+        labelPrivateSales = new JLabel(strPrivateSales + ",-");
+        labelPrivateSales.setForeground(new Color(0.0f, 0.7f, 0.3f));
+
+        labelOrgSales = new JLabel(strOrgSales + ",-");
+        labelOrgSales.setForeground(new Color(0.0f, 0.7f, 0.3f));
+
+        labelTotalSales = new JLabel(strTotalSales + ",-");
+        labelTotalSales.setForeground(new Color(0.0f, 0.7f, 0.3f));
+
+        labelIncomeOther = new JLabel(strOther + ",-");
+        labelIncomeOther.setForeground(new Color(0.0f, 0.7f, 0.3f));
+
+        labelTotalIncome = new JLabel(strTotalIncome + ",-");
+        labelTotalIncome.setForeground(new Color(0.0f, 0.7f, 0.3f));
     }
 
     /** Is inside the Economic overview **/
