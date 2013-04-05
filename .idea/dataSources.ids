@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Data Source" product="Apache Derby" version="10.3.2.1 - (599110)" jdbc-version="4.0" driver-name="Apache Derby Network Client JDBC Driver" driver-version="10.8.1.2 - (1095077)" uuid="2a7a5cc8-2aa2-4dd4-8f73-4c41b574da9b">
+    <identifier-quote-string>"</identifier-quote-string>
+    <synchronize>true</synchronize>
+    <jdbc-driver>org.apache.derby.jdbc.ClientDriver</jdbc-driver>
+    <jdbc-url>jdbc:derby://db.stud.aitel.hist.no/healthycaresystems</jdbc-url>
+    <user-name>teamone</user-name>
+    <user-password>df9bdfecdfc5dfd8dffedfc2dfcfdffddfc3dfc4</user-password>
+    <schema-pattern>*.TEAMONE</schema-pattern>
+    <default-schemas>*.TEAMONE</default-schemas>
+    <libraries>
+      <library>
+        <url>jar://C:/Program Files (x86)/Java/jdk1.7.0/db/lib/derbyclient.jar!/</url>
+      </library>
+    </libraries>
+    <schema name="TEAMONE" catalog="" />
+    <table name="CUSTOMERS" schema="TEAMONE" catalog="" type="TABLE">
+      <column name="CUSTOMER_ID" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" def="QVVUT0lOQ1JFTUVOVDogc3RhcnQgMSBpbmNyZW1lbnQgMQ==" autoIncrement="true" />
+      <column name="FIRST_NAME" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="SURNAME" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="ADRESS" sqlType="VARCHAR" length="40" precision="0" nullable="false" jdbcType="12" />
+      <column name="ZIP_CODE" sqlType="CHAR" length="4" precision="0" nullable="false" jdbcType="1" />
+      <column name="TELEPHONE_NUMBER" sqlType="CHAR" length="8" precision="0" nullable="false" jdbcType="1" />
+      <column name="EMAIL" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
+      <column name="ORGANIZATION_NAME" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
+      <column name="INVOICE_ACCOUNT" sqlType="CHAR" length="11" precision="0" nullable="true" jdbcType="1" />
+      <column name="CUSTOMER_TYPE" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" />
+      <primary-key name="CUSTOMERS_PK" columns="CUSTOMER_ID" />
+      <foreign-key name="CUSTOMERS_FK1" columns="ZIP_CODE" ref-table="ZIP_CODE" ref-schema="TEAMONE" ref-catalog="" ref-columns="ZIP_CODE" update-rule="3" delete-rule="3" deferrability="2" />
+      <exported-key name="ORDERS_FK2" table="ORDERS" schema="TEAMONE" catalog="" columns="CUSTOMER_ID" />
+    </table>
+    <table name="EMPLOYEES" schema="TEAMONE" catalog="" type="TABLE">
+      <column name="EMPLOYEE_ID" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" def="QVVUT0lOQ1JFTUVOVDogc3RhcnQgMSBpbmNyZW1lbnQgMQ==" autoIncrement="true" />
+      <column name="FIRST_NAME" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="SURNAME" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="ADDRESS" sqlType="VARCHAR" length="40" precision="0" nullable="false" jdbcType="12" />
+      <column name="ZIP_CODE" sqlType="CHAR" length="4" precision="0" nullable="false" jdbcType="1" />
+      <column name="TELEPHONE_NUMBER" sqlType="CHAR" length="8" precision="0" nullable="false" jdbcType="1" />
+      <column name="EMAIL" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12" />
+      <column name="POSITION" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="ACCOUNT" sqlType="CHAR" length="11" precision="0" nullable="false" jdbcType="1" />
+      <column name="SALARY" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" />
+      <primary-key name="EPLOYEES_PK" columns="EMPLOYEE_ID" />
+      <foreign-key name="EMPLOYEES_FK2" columns="POSITION" ref-table="POSITIONS" ref-schema="TEAMONE" ref-catalog="" ref-columns="POSITION_ID" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="EMPLOYEES_FK1" columns="ZIP_CODE" ref-table="ZIP_CODE" ref-schema="TEAMONE" ref-catalog="" ref-columns="ZIP_CODE" update-rule="3" delete-rule="3" deferrability="2" />
+      <exported-key name="SQL130303152619730" table="ORDERS" schema="TEAMONE" catalog="" columns="EMPLOYEE_ID" />
+      <exported-key name="USERS_FK" table="USERS" schema="TEAMONE" catalog="" columns="EMPLOYEE_ID" />
+    </table>
+    <table name="INGREDIENTS" schema="TEAMONE" catalog="" type="TABLE">
+      <column name="INGREDIENCE_ID" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" def="QVVUT0lOQ1JFTUVOVDogc3RhcnQgMSBpbmNyZW1lbnQgMQ==" autoIncrement="true" />
+      <column name="NAME" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="IN_STOCK" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="ORDER_MIN" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" />
+      <primary-key name="INGREDIENCES_PK" columns="INGREDIENCE_ID" />
+      <exported-key name="RES_ING_FK1" table="RECIPES_INGREDIENTS" schema="TEAMONE" catalog="" columns="INGREDIENCE_ID" />
+    </table>
+    <table name="ORDERS" schema="TEAMONE" catalog="" type="TABLE">
+      <column name="ORDER_ID" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" def="QVVUT0lOQ1JFTUVOVDogc3RhcnQgMSBpbmNyZW1lbnQgMQ==" autoIncrement="true" />
+      <column name="DELIVERY_DATE" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91" />
+      <column name="ORDER_STATUS" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="PACKAGE_ID" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="CUSTOMER_ID" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="EMPLOYEE_ID" sqlType="INTEGER" length="10" precision="0" nullable="true" jdbcType="4" />
+      <primary-key name="ORDERS_PK" columns="ORDER_ID" />
+      <foreign-key name="ORDERS_FK2" columns="CUSTOMER_ID" ref-table="CUSTOMERS" ref-schema="TEAMONE" ref-catalog="" ref-columns="CUSTOMER_ID" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="SQL130303152619730" columns="EMPLOYEE_ID" ref-table="EMPLOYEES" ref-schema="TEAMONE" ref-catalog="" ref-columns="EMPLOYEE_ID" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="ORDERS_FK1" columns="PACKAGE_ID" ref-table="PACKAGE" ref-schema="TEAMONE" ref-catalog="" ref-columns="PACKAGE_ID" update-rule="3" delete-rule="3" deferrability="2" />
+    </table>
+    <table name="PACKAGE" schema="TEAMONE" catalog="" type="TABLE">
+      <column name="PACKAGE_ID" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" def="QVVUT0lOQ1JFTUVOVDogc3RhcnQgMSBpbmNyZW1lbnQgMQ==" autoIncrement="true" />
+      <column name="PACKAGE_NAME" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="STANDARD" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" def="MQ==" />
+      <primary-key name="PACKAGE_PK" columns="PACKAGE_ID" />
+      <exported-key name="ORDERS_FK1" table="ORDERS" schema="TEAMONE" catalog="" columns="PACKAGE_ID" />
+    </table>
+    <table name="POSITIONS" schema="TEAMONE" catalog="" type="TABLE">
+      <column name="POSITION_ID" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" def="QVVUT0lOQ1JFTUVOVDogc3RhcnQgMSBpbmNyZW1lbnQgMQ==" autoIncrement="true" />
+      <column name="NAME" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="POSITIONS_PK" columns="POSITION_ID" />
+      <exported-key name="EMPLOYEES_FK2" table="EMPLOYEES" schema="TEAMONE" catalog="" columns="POSITION" />
+    </table>
+    <table name="RECIPES" schema="TEAMONE" catalog="" type="TABLE">
+      <column name="RECIPIE_ID" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" def="QVVUT0lOQ1JFTUVOVDogc3RhcnQgMSBpbmNyZW1lbnQgMQ==" autoIncrement="true" />
+      <column name="NAME" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12" />
+      <column name="PRICE" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" />
+      <primary-key name="RECIPIES_PK" columns="RECIPIE_ID" />
+      <exported-key name="RES_ING_FK2" table="RECIPES_INGREDIENTS" schema="TEAMONE" catalog="" columns="RECIPIE_ID" />
+    </table>
+    <table name="RECIPES_INGREDIENTS" schema="TEAMONE" catalog="" type="TABLE">
+      <column name="RECIPIE_ID" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" />
+      <column name="INGREDIENCE_ID" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" />
+      <primary-key name="RES_ING_PK" columns="INGREDIENCE_ID,RECIPIE_ID" />
+      <foreign-key name="RES_ING_FK1" columns="INGREDIENCE_ID" ref-table="INGREDIENTS" ref-schema="TEAMONE" ref-catalog="" ref-columns="INGREDIENCE_ID" update-rule="3" delete-rule="3" deferrability="2" />
+      <foreign-key name="RES_ING_FK2" columns="RECIPIE_ID" ref-table="RECIPES" ref-schema="TEAMONE" ref-catalog="" ref-columns="RECIPIE_ID" update-rule="3" delete-rule="3" deferrability="2" />
+    </table>
+    <table name="USERS" schema="TEAMONE" catalog="" type="TABLE">
+      <column name="USER_NAME" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12" />
+      <column name="PASSWORD" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12" />
+      <column name="CLEARANCE" sqlType="CHAR" length="1" precision="0" nullable="false" jdbcType="1" />
+      <column name="EMPLOYEE_ID" sqlType="INTEGER" length="10" precision="0" nullable="false" jdbcType="4" />
+      <primary-key name="USERS_PK" columns="USER_NAME" />
+      <foreign-key name="USERS_FK" columns="EMPLOYEE_ID" ref-table="EMPLOYEES" ref-schema="TEAMONE" ref-catalog="" ref-columns="EMPLOYEE_ID" update-rule="3" delete-rule="3" deferrability="2" />
+    </table>
+    <table name="ZIP_CODE" schema="TEAMONE" catalog="" type="TABLE">
+      <column name="ZIP_CODE" sqlType="CHAR" length="4" precision="0" nullable="false" jdbcType="1" />
+      <column name="CITY" sqlType="VARCHAR" length="40" precision="0" nullable="false" jdbcType="12" />
+      <primary-key name="ZIP_CODE_PK" columns="ZIP_CODE" />
+      <exported-key name="CUSTOMERS_FK1" table="CUSTOMERS" schema="TEAMONE" catalog="" columns="ZIP_CODE" />
+      <exported-key name="EMPLOYEES_FK1" table="EMPLOYEES" schema="TEAMONE" catalog="" columns="ZIP_CODE" />
+    </table>
+  </data-source>
+</component>
