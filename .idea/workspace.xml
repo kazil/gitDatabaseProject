@@ -6,7 +6,7 @@
     </list>
     <ignored path="gitDatabaseProject.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1365498610613" ignored="false" />
+    <file path="/Dummy.txt" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1365499265403" ignored="false" />
     <file path="/Customer.java" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1362137621630" ignored="false" />
     <file path="/DatabaseOperations.java" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1362134127830" ignored="false" />
     <file path="/Healthycaresystems.java" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1362134723153" ignored="false" />
@@ -120,7 +120,7 @@
       <file leaf-file-name="CeoGUI.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/healtycaresystem/CeoGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="592" column="40" selection-start="19767" selection-end="19767" vertical-scroll-proportion="0.4319809">
+            <state line="588" column="22" selection-start="19591" selection-end="19591" vertical-scroll-proportion="0.26968974">
               <folding>
                 <element signature="n#!!doc;n#tp#0;n#CeoGUI#0" expanded="false" />
                 <element signature="method#CeoGUI#0;class#CeoGUI#0" expanded="false" />
@@ -442,7 +442,11 @@
       <created>1365498618936</created>
       <updated>1365498618936</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Endra tabs">
+      <created>1365499269478</created>
+      <updated>1365499269478</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -648,7 +652,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/healtycaresystem/CeoGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="592" column="40" selection-start="19767" selection-end="19767" vertical-scroll-proportion="0.4319809">
+        <state line="588" column="22" selection-start="19591" selection-end="19591" vertical-scroll-proportion="0.26968974">
           <folding>
             <element signature="n#!!doc;n#tp#0;n#CeoGUI#0" expanded="false" />
             <element signature="method#CeoGUI#0;class#CeoGUI#0" expanded="false" />
