@@ -1,5 +1,7 @@
 package healtycaresystem;
 
+import com.sun.org.glassfish.external.statistics.Statistic;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
@@ -15,8 +17,8 @@ public class CeoGUI extends JFrame {
     private Insets margins = new Insets(5, 5, 5, 5);
 
     private EconomicOverview panelEconomic;
-    private InsuranceOverview panelInsurance;
-    private ElectricityAndRentOverview panelElAndRent;
+    private InsuranceElRentOverview panelInsuranceElRent;
+    private StatisticsOverview panelStatistics;
 
     private JComboBox<String> comboYear;
     private JComboBox<String> comboMonth;
@@ -69,11 +71,11 @@ public class CeoGUI extends JFrame {
     private void initTabbedPane(){
         tp = new JTabbedPane();
         panelEconomic = new EconomicOverview();
-        panelInsurance = new InsuranceOverview();
-        panelElAndRent = new ElectricityAndRentOverview();
+        panelInsuranceElRent = new InsuranceElRentOverview();
+        panelStatistics = new StatisticsOverview();
         tp.addTab("Economic overview", panelEconomic);
-        tp.addTab("Insurance overview", panelInsurance);
-        tp.addTab("Electricity and Rent", panelElAndRent);
+        tp.addTab("Insurance, electricity and rent overview", panelInsuranceElRent);
+        tp.addTab("Statistics", panelStatistics);
 
     }
 
@@ -565,24 +567,40 @@ public class CeoGUI extends JFrame {
 
     //<editor-fold defaultstate="collapsed" desc="Second Tab">
     /** Second tab. **/
-    private class InsuranceOverview extends JPanel {
-        public InsuranceOverview(){
+    private class InsuranceElRentOverview extends JPanel {
+        public InsuranceElRentOverview(){
             setLayout(new GridBagLayout());
             setPreferredSize(dimPanels);
+            GridBagConstraints gb = new GridBagConstraints();
 
-            add(new JLabel("Insurance Overview:"));
+            gb.insets = margins;
+            gb.anchor = GridBagConstraints.FIRST_LINE_START;
+
+            gb.gridx = 0;
+            gb.gridy = 0;
+            JLabel title = new JLabel("Insurance, electricity and rent overview");
+            title.setFont(new Font(Font.SANS_SERIF,Font.BOLD, 18));
+            add(title, gb);
         }
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Third Tab">
     /** Third tab. **/
-    private class ElectricityAndRentOverview extends JPanel {
-        public ElectricityAndRentOverview(){
+    private class StatisticsOverview extends JPanel {
+        public StatisticsOverview(){
             setLayout(new GridBagLayout());
             setPreferredSize(dimPanels);
+            GridBagConstraints gb = new GridBagConstraints();
 
-            add(new JLabel("Electricity and Rent"));
+            gb.insets = margins;
+            gb.anchor = GridBagConstraints.FIRST_LINE_START;
+
+            gb.gridx = 0;
+            gb.gridy = 0;
+            JLabel title = new JLabel("Statistics");
+            title.setFont(new Font(Font.SANS_SERIF,Font.BOLD, 18));
+            add(title, gb);
         }
     }
     //</editor-fold>
