@@ -6,6 +6,8 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class CeoGUI extends JFrame {
     //<editor-fold defaultstate="collapsed" desc="Variables">
@@ -28,6 +30,10 @@ public class CeoGUI extends JFrame {
     private int employeeID;
 
     private JLabel
+
+            /*Economic overview*/
+
+            /*Income*/
             labelPrivateSales,
             labelOrgSales,
             labelTotalSales,
@@ -50,8 +56,20 @@ public class CeoGUI extends JFrame {
             labelBeforeTaxes,
             labelVAT,
             labelTaxes,
-            labelAfterTaxes;
+            labelAfterTaxes,
 
+            /* Insurance, el, rent*/
+
+            /*Insurance*/
+            labelCar,
+            labelHousehold,
+            labelWorkersComp,
+            labelTotalInsurance,
+
+            /*Electricity*/
+
+            /*Rent*/
+            labelHouse;
     
     //</editor-fold>
 
@@ -152,7 +170,6 @@ public class CeoGUI extends JFrame {
             gb.anchor = GridBagConstraints.LINE_START;
 
             updateNumbers();
-
 
             gb.gridx = 0;
             gb.gridy = 0;
@@ -568,7 +585,127 @@ public class CeoGUI extends JFrame {
     //<editor-fold defaultstate="collapsed" desc="Second Tab">
     /** Second tab. **/
     private class InsuranceElRentOverview extends JPanel {
+        private InsurancePanel panelInsurance;
+        private ElectricityPanel panelElectricity;
+        private RentPanel panelRent;
+
         public InsuranceElRentOverview(){
+            setLayout(new GridBagLayout());
+            setPreferredSize(dimPanels);
+            GridBagConstraints gb = new GridBagConstraints();
+
+            gb.insets = margins;
+            gb.anchor = GridBagConstraints.FIRST_LINE_START;
+
+            initPanelsTabTwo();
+
+            gb.gridx = 0;
+            gb.gridy = 0;
+            JLabel title = new JLabel("Insurance, electricity, rent");
+            title.setFont(new Font(Font.SANS_SERIF,Font.BOLD, 18));
+            add(title, gb);
+
+            gb.gridy++;
+            add(panelInsurance, gb);
+
+            gb.gridy++;
+            add(panelElectricity, gb);
+
+            gb.insets = new Insets(5, 25, 5, 5);
+            gb.gridy = 1;
+            gb.gridx = 1;
+            gb.weightx = 1.0;
+            gb.weighty = 1.0;
+            add(panelRent, gb);
+        }
+
+        public void initPanelsTabTwo(){
+            panelInsurance = new InsurancePanel();
+            Border grayLine = BorderFactory.createLineBorder(Color.GRAY);
+            TitledBorder borderTitle = BorderFactory.createTitledBorder(grayLine, "Insurance");
+            panelInsurance.setBorder(borderTitle);
+
+            panelElectricity = new ElectricityPanel();
+            grayLine = BorderFactory.createLineBorder(Color.GRAY);
+            borderTitle = BorderFactory.createTitledBorder(grayLine, "Electricity");
+            panelElectricity.setBorder(borderTitle);
+
+            panelRent = new RentPanel();
+            grayLine = BorderFactory.createLineBorder(Color.GRAY);
+            borderTitle = BorderFactory.createTitledBorder(grayLine, "Rent");
+            panelRent.setBorder(borderTitle);
+        }
+
+    }
+
+    private class InsurancePanel extends JPanel {
+        private JLabel prompt;
+        private JButton edit;
+
+        public InsurancePanel(){
+            setLayout(new GridBagLayout());
+            setPreferredSize(dimIncomePanel);
+            GridBagConstraints gb = new GridBagConstraints();
+
+            gb.anchor = GridBagConstraints.LINE_START;
+
+            updateNumbersTabTwo();
+
+            gb.gridx = 0;
+            gb.gridy = 0;
+            gb.insets = margins;
+
+            prompt = new JLabel("Car insurance:");
+            add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelCar, gb);
+
+            gb.gridy++;
+            gb.gridx--;
+            gb.anchor = GridBagConstraints.LINE_START;
+            prompt = new JLabel("Household insurance:");
+            add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelHousehold, gb);
+
+            gb.gridy++;
+            gb.gridx--;
+            gb.anchor = GridBagConstraints.LINE_START;
+            prompt = new JLabel("Workers' compensation insurance:");
+            add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelWorkersComp, gb);
+
+            /** Seperator line **/
+            gb.fill = GridBagConstraints.BOTH;
+            gb.anchor = GridBagConstraints.LINE_START;
+            gb.gridy++;
+            gb.gridx--;
+            gb.gridwidth = 2;
+            JSeparator line = new JSeparator(JSeparator.HORIZONTAL);
+            line.setBackground(Color.BLACK);
+            line.setForeground(Color.BLACK);
+            line.setPreferredSize(dimLine);
+            add(line, gb);
+
+            gb.gridy++;
+            prompt = new JLabel("Total:");
+            add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelTotalInsurance, gb);
+        }
+
+
+    }
+
+    private class ElectricityPanel extends JPanel {
+        private JLabel prompt;
+
+        public ElectricityPanel(){
             setLayout(new GridBagLayout());
             setPreferredSize(dimPanels);
             GridBagConstraints gb = new GridBagConstraints();
@@ -578,11 +715,86 @@ public class CeoGUI extends JFrame {
 
             gb.gridx = 0;
             gb.gridy = 0;
-            JLabel title = new JLabel("Insurance, electricity and rent overview");
-            title.setFont(new Font(Font.SANS_SERIF,Font.BOLD, 18));
+            JLabel title = new JLabel("Electricity");
+            //title.setFont(new Font(Font.SANS_SERIF,Font.BOLD, 18));
             add(title, gb);
         }
     }
+
+    private class RentPanel extends JPanel {
+        private JLabel prompt;
+
+        public RentPanel(){
+            setLayout(new GridBagLayout());
+            setPreferredSize(dimIncomePanel);
+            GridBagConstraints gb = new GridBagConstraints();
+
+            gb.anchor = GridBagConstraints.LINE_START;
+
+            updateNumbersTabTwo();
+
+            gb.gridx = 0;
+            gb.gridy = 0;
+            gb.insets = margins;
+
+            prompt = new JLabel("House rent:");
+            add(prompt, gb);
+            gb.gridx++;
+            gb.anchor = GridBagConstraints.LINE_END;
+            add(labelHouse, gb);
+
+            /** Seperator line **/
+            gb.fill = GridBagConstraints.BOTH;
+            gb.anchor = GridBagConstraints.LINE_START;
+            gb.gridy++;
+            gb.gridx--;
+            gb.gridwidth = 2;
+            JSeparator line = new JSeparator(JSeparator.HORIZONTAL);
+            line.setBackground(Color.BLACK);
+            line.setForeground(Color.BLACK);
+            line.setPreferredSize(dimLine);
+            add(line, gb);
+        }
+    }
+
+    public void updateNumbersTabTwo(){
+        /*Insurance*/
+        int car = 101450;
+        int household = 24500;
+        int workersComp = 13600;
+        int totalInsurance = car + household + workersComp;
+
+        /*Rent*/
+        int house = 20000;
+
+        /*Insurance*/
+        String strCar = String.format("%,d", car);
+        String strHousehold = String.format("%,d", household);
+        String strWorkersComp = String.format("%,d", workersComp);
+        String strTotalInsurance = String.format("%,d", totalInsurance);
+
+        /*Rent*/
+        String strHouse = String.format("%,d", house);
+
+        /*Insurance*/
+        labelCar = new JLabel("-" + strCar + ",-");
+        labelCar.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        labelHousehold = new JLabel("-" + strHousehold + ",-");
+        labelHousehold.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        labelWorkersComp = new JLabel("-" + strWorkersComp + ",-");
+        labelWorkersComp.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        labelTotalInsurance = new JLabel("-" + strTotalInsurance + ",-");
+        labelTotalInsurance.setForeground(new Color(1.0f, 0.0f, 0.0f));
+
+        /*Rent*/
+        labelHouse = new JLabel("-" + strHouse + ",-");
+        labelHouse.setForeground(new Color(1.0f, 0.0f, 0.0f));
+    }
+
+
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Third Tab">
