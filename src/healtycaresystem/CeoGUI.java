@@ -1,13 +1,14 @@
 package healtycaresystem;
 
 import com.sun.org.glassfish.external.statistics.Statistic;
+import sun.misc.JavaxSecurityAuthKerberosAccess;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CeoGUI extends JFrame {
     //<editor-fold defaultstate="collapsed" desc="Variables">
@@ -28,6 +29,8 @@ public class CeoGUI extends JFrame {
     private String[] listMonth = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
     private int employeeID;
+
+    private JFrame parent = this;
 
     private JLabel
 
@@ -123,12 +126,10 @@ public class CeoGUI extends JFrame {
             gb.gridy++;
             add(new ComboPanel(), gb);
 
-
             gb.gridy++;
             add(panelIncome, gb);
 
             gb.gridy++;
-
             add(panelExpenses, gb);
 
             gb.insets = new Insets(5, 25, 5, 5);
@@ -584,10 +585,13 @@ public class CeoGUI extends JFrame {
 
     //<editor-fold defaultstate="collapsed" desc="Second Tab">
     /** Second tab. **/
-    private class InsuranceElRentOverview extends JPanel {
+    private class InsuranceElRentOverview extends JPanel{
         private InsurancePanel panelInsurance;
         private ElectricityPanel panelElectricity;
         private RentPanel panelRent;
+
+        private JButton button = new JButton();
+        //skal den stå her?
 
         public InsuranceElRentOverview(){
             setLayout(new GridBagLayout());
@@ -617,6 +621,21 @@ public class CeoGUI extends JFrame {
             gb.weightx = 1.0;
             gb.weighty = 1.0;
             add(panelRent, gb);
+
+            gb.gridy++;
+            add(button, gb);
+            button.setText("Edit values");
+            button.addActionListener(new ButtonListener());
+
+
+        }
+
+        private class ButtonListener implements ActionListener{
+            public void actionPerformed(ActionEvent e){
+                CeoEdit edit = new CeoEdit(parent);
+                edit.setVisible(true);
+            }
+
         }
 
         public void initPanelsTabTwo(){
