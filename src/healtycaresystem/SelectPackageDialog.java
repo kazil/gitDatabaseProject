@@ -28,9 +28,15 @@ public class SelectPackageDialog extends JDialog {
     private final String[] monthSelections = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     private String[] daySelections;
     private String[] februaryDaySelections;
-    private JComboBox<String> comboYear;
-    private JComboBox<String> comboMonth;
-    private JComboBox<String> comboDays;
+
+    private JCheckBox checkBoxOverTime = new JCheckBox();
+    private JComboBox<String> comboFromYear;
+    private JComboBox<String> comboFromMonth;
+    private JComboBox<String> comboFromDay;
+
+    private JComboBox<String> comboToYear;
+    private JComboBox<String> comboToMonth;
+    private JComboBox<String> comboToDay;
     private VerifyInput vf = new VerifyInput();
     //</editor-fold>
 
@@ -39,6 +45,7 @@ public class SelectPackageDialog extends JDialog {
         setLayout(new GridBagLayout());
         GridBagConstraints gb = new GridBagConstraints();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setResizable(false);
         gb.gridx = 0;
         gb.gridy = 0;
         gb.gridwidth = 2;
@@ -107,12 +114,24 @@ public class SelectPackageDialog extends JDialog {
 
     private void initCombos(){
         initSelections();
-        comboYear = new JComboBox<>(yearSelections);
-        comboMonth = new JComboBox<>(monthSelections);
-        comboDays = new JComboBox<>(daySelections);
+        comboFromYear = new JComboBox<>(yearSelections);
+        comboFromMonth = new JComboBox<>(monthSelections);
+        comboFromDay = new JComboBox<>(daySelections);
+
+        comboToYear = new JComboBox<>(yearSelections);
+        comboToMonth = new JComboBox<>(monthSelections);
+        comboToDay = new JComboBox<>(daySelections);
+        /** Sets to-date uneditable **/
+        comboToYear.setEnabled(false);
+        comboToMonth.setEnabled(false);
+        comboToDay.setEnabled(false);
+
         GregorianCalendar cal = new GregorianCalendar();
-        comboMonth.setSelectedIndex(cal.get(GregorianCalendar.MONTH));
-        comboDays.setSelectedIndex(cal.get(GregorianCalendar.DATE)-1);
+        comboFromMonth.setSelectedIndex(cal.get(GregorianCalendar.MONTH));
+        comboFromDay.setSelectedIndex(cal.get(GregorianCalendar.DATE) - 1);
+
+        comboToMonth.setSelectedIndex(cal.get(GregorianCalendar.MONTH));
+        comboToDay.setSelectedIndex(cal.get(GregorianCalendar.DATE) - 1);
     }
     //</editor-fold>
 
@@ -146,16 +165,51 @@ public class SelectPackageDialog extends JDialog {
             GridBagConstraints gb = new GridBagConstraints();
 
             initCombos();
+
+            gb.insets = margins;
+
             gb.gridx = 0;
             gb.gridy = 0;
-            add(new JLabel("Select Start Date:"), gb);
-            gb.gridx++;
-            add(comboYear, gb);
-            gb.gridx++;
-            add(comboMonth, gb);
-            gb.gridx++;
-            add(comboDays, gb);
+            gb.gridwidth = 2;
+            add(new JLabel("Order over time?"), gb);
 
+            gb.gridx += 2;
+            gb.gridwidth = 1;
+            checkBoxOverTime.setActionCommand("radioButton");
+            checkBoxOverTime.addActionListener(new Listener());
+            add(checkBoxOverTime, gb);
+
+            gb.gridx = 0;
+            gb.gridy++;
+            gb.gridwidth = 2;
+            add(new JLabel("Select Start Date:"), gb);
+
+            gb.gridwidth = 1;
+            gb.gridx += 2;
+            add(comboFromYear, gb);
+
+            gb.gridx++;
+            add(comboFromMonth, gb);
+
+            gb.gridx++;
+            add(comboFromDay, gb);
+
+            gb.gridx = 0;
+            gb.gridy++;
+            gb.gridwidth = 2;
+            add(new JLabel("Select End Date:"), gb);
+
+            gb.gridwidth = 1;
+            gb.gridx += 2;
+            add(comboToYear, gb);
+
+            gb.gridx++;
+            add(comboToMonth, gb);
+
+            gb.gridx++;
+            add(comboToDay, gb);
+
+            gb.gridwidth = 1;
             gb.gridx = 0;
             gb.gridy++;
             add(buttonSelect, gb);
@@ -185,15 +239,26 @@ public class SelectPackageDialog extends JDialog {
                 case "cancel":
                     dispose();
                     break;
+                case "radioButton":
+                    if(checkBoxOverTime.isSelected()){
+                        comboToYear.setEnabled(true);
+                        comboToMonth.setEnabled(true);
+                        comboToDay.setEnabled(true);
+                    }else{
+                        comboToYear.setEnabled(false);
+                        comboToMonth.setEnabled(false);
+                        comboToDay.setEnabled(false);
+                    }
+                    break;
                 default:
                     break;
             }
         }
 
         private boolean verifyDeliveryDate(){
-            int year = Integer.parseInt((String) comboYear.getSelectedItem());
-            int month = comboMonth.getSelectedIndex()+1;
-            int day = comboDays.getSelectedIndex()+1;
+            int year = Integer.parseInt((String) comboFromYear.getSelectedItem());
+            int month = comboFromMonth.getSelectedIndex()+1;
+            int day = comboFromDay.getSelectedIndex()+1;
             if(vf.verifyDate(year,month,day)){
                 deliveryDate = year+"-"+month+"-"+day;
                 return true;
