@@ -599,6 +599,7 @@ public class CeoGUI extends JFrame {
             GridBagConstraints gb = new GridBagConstraints();
 
             gb.insets = margins;
+            //gb.fill = GridBagConstraints.BOTH;
             gb.anchor = GridBagConstraints.FIRST_LINE_START;
 
             initPanelsTabTwo();
@@ -609,24 +610,29 @@ public class CeoGUI extends JFrame {
             title.setFont(new Font(Font.SANS_SERIF,Font.BOLD, 18));
             add(title, gb);
 
+            //gb.weightx = 1;
+            //gb.weighty = 1;
             gb.gridy++;
             add(panelInsurance, gb);
 
+            //gb.weightx = 1;
+            //gb.weighty = 1;
             gb.gridy++;
             add(panelElectricity, gb);
 
-            gb.insets = new Insets(5, 25, 5, 5);
+            //gb.insets = new Insets(5, 25, 5, 5);
             gb.gridy = 1;
             gb.gridx = 1;
-            gb.weightx = 1.0;
-            gb.weighty = 1.0;
+            //gb.weightx = 1.0;
+            //gb.weighty = 1.0;
             add(panelRent, gb);
 
+           // gb.weightx = 1.0;
+            //gb.weighty = 1.0;
             gb.gridy++;
             add(button, gb);
             button.setText("Edit values");
             button.addActionListener(new ButtonListener());
-
 
         }
 
