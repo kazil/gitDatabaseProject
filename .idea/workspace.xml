@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e04cfac-2494-430e-bfd5-397530123698" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healtycaresystem/CeoEdit.java" afterPath="$PROJECT_DIR$/src/healtycaresystem/CeoEdit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healtycaresystem/CeoGUI.java" afterPath="$PROJECT_DIR$/src/healtycaresystem/CeoGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="gitDatabaseProject.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1365672637948" ignored="false" />
+    <file path="/Dummy.txt" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1365758200223" ignored="false" />
     <file path="/Customer.java" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1362137621630" ignored="false" />
     <file path="/DatabaseOperations.java" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1362134127830" ignored="false" />
     <file path="/Healthycaresystems.java" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1362134723153" ignored="false" />
@@ -85,7 +84,7 @@
       </breakpoint>
     </breakpoint_any>
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/healtycaresystem/CeoGUI.java" line="89" class="healtycaresystem.CeoGUI" package="healtycaresystem">
+      <breakpoint url="file://$PROJECT_DIR$/src/healtycaresystem/CeoGUI.java" line="129" class="healtycaresystem.CeoGUI.EconomicOverview" package="healtycaresystem">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -113,12 +112,11 @@
       <file leaf-file-name="CeoGUI.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/healtycaresystem/CeoGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="850" column="0" selection-start="27731" selection-end="27731" vertical-scroll-proportion="0.54642856">
+            <state line="476" column="0" selection-start="14978" selection-end="14978" vertical-scroll-proportion="0.7690476">
               <folding>
                 <element signature="n#!!doc;n#tp#0;n#CeoGUI#0" expanded="false" />
                 <element signature="method#CeoGUI#0;class#CeoGUI#0" expanded="false" />
                 <element signature="method#initTabbedPane#0;class#CeoGUI#0" expanded="false" />
-                <element signature="e#2901#2958#0" expanded="false" />
                 <element signature="docComment;class#EconomicOverview#0;class#CeoGUI#0" expanded="false" />
                 <element signature="class#EconomicOverview#0;class#CeoGUI#0" expanded="false" />
                 <element signature="method#EconomicOverview#0;class#EconomicOverview#0;class#CeoGUI#0" expanded="false" />
@@ -130,36 +128,10 @@
                 <element signature="class#ExpensesPanel#0;class#CeoGUI#0" expanded="false" />
                 <element signature="method#ExpensesPanel#0;class#ExpensesPanel#0;class#CeoGUI#0" expanded="false" />
                 <element signature="docComment;class#RevenuePanel#0;class#CeoGUI#0" expanded="false" />
-                <element signature="class#RevenuePanel#0;class#CeoGUI#0" expanded="false" />
-                <element signature="method#RevenuePanel#0;class#RevenuePanel#0;class#CeoGUI#0" expanded="false" />
-                <element signature="docComment;method#updateNumbers#0;class#CeoGUI#0" expanded="false" />
-                <element signature="method#updateNumbers#0;class#CeoGUI#0" expanded="false" />
                 <element signature="docComment;class#ComboPanel#0;class#CeoGUI#0" expanded="false" />
                 <element signature="class#ComboPanel#0;class#CeoGUI#0" expanded="false" />
                 <element signature="method#ComboPanel#0;class#ComboPanel#0;class#CeoGUI#0" expanded="false" />
                 <element signature="method#initCombos#0;class#ComboPanel#0;class#CeoGUI#0" expanded="false" />
-                <element signature="e#19276#19334#0" expanded="false" />
-                <element signature="docComment;class#InsuranceElRentOverview#0;class#CeoGUI#0" expanded="false" />
-                <element signature="class#InsuranceElRentOverview#0;class#CeoGUI#0" expanded="false" />
-                <element signature="method#InsuranceElRentOverview#0;class#InsuranceElRentOverview#0;class#CeoGUI#0" expanded="false" />
-                <element signature="e#20229#20246#0" expanded="false" />
-                <element signature="e#20351#20368#0" expanded="false" />
-                <element signature="e#20578#20597#0" expanded="false" />
-                <element signature="e#20674#20694#0" expanded="false" />
-                <element signature="class#ButtonListener#0;class#InsuranceElRentOverview#0;class#CeoGUI#0" expanded="false" />
-                <element signature="method#actionPerformed#0;class#ButtonListener#0;class#InsuranceElRentOverview#0;class#CeoGUI#0" expanded="false" />
-                <element signature="method#initPanelsTabTwo#0;class#InsuranceElRentOverview#0;class#CeoGUI#0" expanded="false" />
-                <element signature="class#InsurancePanel#0;class#CeoGUI#0" expanded="false" />
-                <element signature="method#InsurancePanel#0;class#InsurancePanel#0;class#CeoGUI#0" expanded="false" />
-                <element signature="class#ElectricityPanel#0;class#CeoGUI#0" expanded="false" />
-                <element signature="method#ElectricityPanel#0;class#ElectricityPanel#0;class#CeoGUI#0" expanded="false" />
-                <element signature="class#RentPanel#0;class#CeoGUI#0" expanded="false" />
-                <element signature="method#RentPanel#0;class#RentPanel#0;class#CeoGUI#0" expanded="false" />
-                <element signature="method#updateNumbersTabTwo#0;class#CeoGUI#0" expanded="false" />
-                <element signature="e#27075#27132#0" expanded="false" />
-                <element signature="docComment;class#StatisticsOverview#0;class#CeoGUI#0" expanded="false" />
-                <element signature="class#StatisticsOverview#0;class#CeoGUI#0" expanded="false" />
-                <element signature="method#StatisticsOverview#0;class#StatisticsOverview#0;class#CeoGUI#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -169,20 +141,7 @@
         <entry file="file://$PROJECT_DIR$/src/healtycaresystem/CeoEdit.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="198" column="1" selection-start="6478" selection-end="6478" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc;n#dimPanels#0;n#CeoEdit#0" expanded="false" />
-                <element signature="method#CeoEdit#0;class#CeoEdit#0" expanded="false" />
-                <element signature="class#Panel#0;class#CeoEdit#0" expanded="false" />
-                <element signature="method#Panel#0;class#Panel#0;class#CeoEdit#0" expanded="false" />
-                <element signature="method#initPanels#0;class#Panel#0;class#CeoEdit#0" expanded="false" />
-                <element signature="class#InsurancePanel#0;class#CeoEdit#0" expanded="false" />
-                <element signature="method#InsurancePanel#0;class#InsurancePanel#0;class#CeoEdit#0" expanded="false" />
-                <element signature="class#RentPanel#0;class#CeoEdit#0" expanded="false" />
-                <element signature="method#RentPanel#0;class#RentPanel#0;class#CeoEdit#0" expanded="false" />
-                <element signature="method#initTextfields#0;class#CeoEdit#0" expanded="false" />
-                <element signature="class#Listener#0;class#CeoEdit#0" expanded="false" />
-                <element signature="method#actionPerformed#0;class#Listener#0;class#CeoEdit#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -214,8 +173,8 @@
         <option value="$PROJECT_DIR$/src/healtycaresystem/CustomerRegister.java" />
         <option value="$PROJECT_DIR$/src/healtycaresystem/CeoEditInsurance.java" />
         <option value="$PROJECT_DIR$/src/healtycaresystem/SelectPackageDialog.java" />
-        <option value="$PROJECT_DIR$/src/healtycaresystem/CeoGUI.java" />
         <option value="$PROJECT_DIR$/src/healtycaresystem/CeoEdit.java" />
+        <option value="$PROJECT_DIR$/src/healtycaresystem/CeoGUI.java" />
       </list>
     </option>
   </component>
@@ -253,7 +212,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -292,6 +250,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -311,9 +270,9 @@
     <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -363,19 +322,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -402,6 +348,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -576,7 +535,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32423207" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -584,7 +543,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44545454" sideWeight="0.7610921" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23890784" sideWeight="0.9987864" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23890784" sideWeight="0.9987864" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -728,26 +687,6 @@
         <state line="646" column="47" selection-start="22482" selection-end="22482" vertical-scroll-proportion="0.33169532" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/CeoEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="198" column="1" selection-start="6478" selection-end="6478" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc;n#dimPanels#0;n#CeoEdit#0" expanded="false" />
-            <element signature="method#CeoEdit#0;class#CeoEdit#0" expanded="false" />
-            <element signature="class#Panel#0;class#CeoEdit#0" expanded="false" />
-            <element signature="method#Panel#0;class#Panel#0;class#CeoEdit#0" expanded="false" />
-            <element signature="method#initPanels#0;class#Panel#0;class#CeoEdit#0" expanded="false" />
-            <element signature="class#InsurancePanel#0;class#CeoEdit#0" expanded="false" />
-            <element signature="method#InsurancePanel#0;class#InsurancePanel#0;class#CeoEdit#0" expanded="false" />
-            <element signature="class#RentPanel#0;class#CeoEdit#0" expanded="false" />
-            <element signature="method#RentPanel#0;class#RentPanel#0;class#CeoEdit#0" expanded="false" />
-            <element signature="method#initTextfields#0;class#CeoEdit#0" expanded="false" />
-            <element signature="class#Listener#0;class#CeoEdit#0" expanded="false" />
-            <element signature="method#actionPerformed#0;class#Listener#0;class#CeoEdit#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/healtycaresystem/ZipCodeRegister.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="13" selection-start="69" selection-end="69" vertical-scroll-proportion="0.12142857">
@@ -755,14 +694,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/CeoEdit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="198" column="1" selection-start="6478" selection-end="6478" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/healtycaresystem/CeoGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="850" column="0" selection-start="27731" selection-end="27731" vertical-scroll-proportion="0.54642856">
+        <state line="476" column="0" selection-start="14978" selection-end="14978" vertical-scroll-proportion="0.7690476">
           <folding>
             <element signature="n#!!doc;n#tp#0;n#CeoGUI#0" expanded="false" />
             <element signature="method#CeoGUI#0;class#CeoGUI#0" expanded="false" />
             <element signature="method#initTabbedPane#0;class#CeoGUI#0" expanded="false" />
-            <element signature="e#2901#2958#0" expanded="false" />
             <element signature="docComment;class#EconomicOverview#0;class#CeoGUI#0" expanded="false" />
             <element signature="class#EconomicOverview#0;class#CeoGUI#0" expanded="false" />
             <element signature="method#EconomicOverview#0;class#EconomicOverview#0;class#CeoGUI#0" expanded="false" />
@@ -774,36 +719,10 @@
             <element signature="class#ExpensesPanel#0;class#CeoGUI#0" expanded="false" />
             <element signature="method#ExpensesPanel#0;class#ExpensesPanel#0;class#CeoGUI#0" expanded="false" />
             <element signature="docComment;class#RevenuePanel#0;class#CeoGUI#0" expanded="false" />
-            <element signature="class#RevenuePanel#0;class#CeoGUI#0" expanded="false" />
-            <element signature="method#RevenuePanel#0;class#RevenuePanel#0;class#CeoGUI#0" expanded="false" />
-            <element signature="docComment;method#updateNumbers#0;class#CeoGUI#0" expanded="false" />
-            <element signature="method#updateNumbers#0;class#CeoGUI#0" expanded="false" />
             <element signature="docComment;class#ComboPanel#0;class#CeoGUI#0" expanded="false" />
             <element signature="class#ComboPanel#0;class#CeoGUI#0" expanded="false" />
             <element signature="method#ComboPanel#0;class#ComboPanel#0;class#CeoGUI#0" expanded="false" />
             <element signature="method#initCombos#0;class#ComboPanel#0;class#CeoGUI#0" expanded="false" />
-            <element signature="e#19276#19334#0" expanded="false" />
-            <element signature="docComment;class#InsuranceElRentOverview#0;class#CeoGUI#0" expanded="false" />
-            <element signature="class#InsuranceElRentOverview#0;class#CeoGUI#0" expanded="false" />
-            <element signature="method#InsuranceElRentOverview#0;class#InsuranceElRentOverview#0;class#CeoGUI#0" expanded="false" />
-            <element signature="e#20229#20246#0" expanded="false" />
-            <element signature="e#20351#20368#0" expanded="false" />
-            <element signature="e#20578#20597#0" expanded="false" />
-            <element signature="e#20674#20694#0" expanded="false" />
-            <element signature="class#ButtonListener#0;class#InsuranceElRentOverview#0;class#CeoGUI#0" expanded="false" />
-            <element signature="method#actionPerformed#0;class#ButtonListener#0;class#InsuranceElRentOverview#0;class#CeoGUI#0" expanded="false" />
-            <element signature="method#initPanelsTabTwo#0;class#InsuranceElRentOverview#0;class#CeoGUI#0" expanded="false" />
-            <element signature="class#InsurancePanel#0;class#CeoGUI#0" expanded="false" />
-            <element signature="method#InsurancePanel#0;class#InsurancePanel#0;class#CeoGUI#0" expanded="false" />
-            <element signature="class#ElectricityPanel#0;class#CeoGUI#0" expanded="false" />
-            <element signature="method#ElectricityPanel#0;class#ElectricityPanel#0;class#CeoGUI#0" expanded="false" />
-            <element signature="class#RentPanel#0;class#CeoGUI#0" expanded="false" />
-            <element signature="method#RentPanel#0;class#RentPanel#0;class#CeoGUI#0" expanded="false" />
-            <element signature="method#updateNumbersTabTwo#0;class#CeoGUI#0" expanded="false" />
-            <element signature="e#27075#27132#0" expanded="false" />
-            <element signature="docComment;class#StatisticsOverview#0;class#CeoGUI#0" expanded="false" />
-            <element signature="class#StatisticsOverview#0;class#CeoGUI#0" expanded="false" />
-            <element signature="method#StatisticsOverview#0;class#StatisticsOverview#0;class#CeoGUI#0" expanded="false" />
           </folding>
         </state>
       </provider>

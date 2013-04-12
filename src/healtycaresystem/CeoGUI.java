@@ -637,7 +637,7 @@ public class CeoGUI extends JFrame {
             gb.weighty = 3;
             gb.weightx = 3;
             gb.gridheight = GridBagConstraints.REMAINDER;
-            add(Box.createGlue(),gb);
+            //add(Box.createGlue(),gb);
 
         }
 
