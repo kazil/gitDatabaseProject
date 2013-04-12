@@ -79,6 +79,7 @@ public class SalesmanGUI extends JFrame {
         this.employeeID = employeeID;
         zipCodes = db.getZipCodes();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setResizable(false);
         setTitle("Salesman Interface");
         setLayout(new GridBagLayout());
         GridBagConstraints fgb = new GridBagConstraints();

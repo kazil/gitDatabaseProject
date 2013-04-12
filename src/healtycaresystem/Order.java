@@ -9,7 +9,7 @@ public class Order {
     private int packageID;
     private int customerID;
     private int employeeID;
-    private ArrayList<Package> packages;
+    private Package aPackage;
 
     public Order(int orderID, String deliveryDate, int orderStatus, int packageID, int customerID, int employeeID){
         this.orderID = orderID;
@@ -50,5 +50,23 @@ public class Order {
 
     public int getEmployeeID() {
         return employeeID;
+    }
+
+    public void setPackage(Package aPackage){
+        this.aPackage = aPackage;
+    }
+
+    public String toString(){
+        /*
+        private int orderID;
+        private String deliveryDate;
+        private int orderStatus;
+        private int packageID;
+        private int customerID;
+        private int employeeID;
+        private Package aPackage;
+         */
+        return "orderID = " + orderID + ". deliveryDate = " + deliveryDate + ". orderStatus = " +
+                orderStatus + ". customerID = " + customerID + ". employeeID = " + employeeID + "\npackage:\n" + aPackage.toString();
     }
 }

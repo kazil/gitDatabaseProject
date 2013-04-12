@@ -211,6 +211,128 @@ public class DatabaseOperations {
 
     }
 
+    public ArrayList<Order> getOrders(){
+        String sql = "SELECT * FROM orders";
+        db.openConnection();
+        ResultSet res = db.getSelection(sql);
+        ArrayList<Order> orders = new ArrayList<>();
+        try {
+            while(res.next()){
+                int orderID = res.getInt("order_id");
+                String date = res.getDate("delivery_date").toString();
+                int orderStatus = res.getInt("order_status");
+                int packageID = res.getInt("package_id");
+                int customerID = res.getInt("customer_id");
+                int employeeID = res.getInt("employee_id");
+
+                Order order = new Order(orderID, date, orderStatus, packageID, customerID, employeeID);
+                orders.add(order);
+            }
+            for(Order o : orders){
+                o.setPackage(getPackage(o.getPackageID()));
+            }
+        } catch (Exception e) {
+            System.out.println("Feil i getOrders()");
+        } finally {
+            db.closeConnection();
+            return orders;
+        }
+    }
+
+    public Package getPackage(int packageID){
+        String sql = "SELECT * FROM package WHERE package_id = " + packageID;
+        db.openConnection();
+        ResultSet res = db.getSelection(sql);
+        Package packageRes = null;
+        try {
+            while(res.next()){
+                String name = res.getString("package_name");
+                int standard = res.getInt("standard");
+                packageRes = new Package(packageID, name);
+            }
+            ArrayList<Recipe> allRecipes = getAllRecipes();
+            db.closeConnection();
+            db.openConnection();
+            res = db.getSelection("SELECT * FROM package_recipes WHERE package_id = " + packageID);
+            while(res.next()){
+                int recipieID = res.getInt("recipie_id");
+                for(Recipe r : allRecipes){
+                    if(r.getRecipeID() == recipieID){
+                        packageRes.addRecipie(r);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Feil i DatabaseOperations.getPackage()");
+        } finally {
+            db.closeConnection();
+            return packageRes;
+        }
+    }
+
+    public ArrayList<Recipe> getAllRecipes(){
+        String sql = "SELECT * FROM recipes";
+        String sql2 = "SELECT * FROM ingredients_recipes WHERE recipie_id = ";
+        db.openConnection();
+        ResultSet res = db.getSelection(sql);
+        ArrayList<Recipe> recipes = new ArrayList<>();
+        try {
+            // Henter alle oppskrifter.
+            while(res.next()){
+                int recipieID = res.getInt("recipie_id");
+                String name = res.getString("name");
+                Recipe recipie = new Recipe(recipieID, name);
+                recipes.add(recipie);
+            }
+            ArrayList<Ingredient> allIngredients = getAllIngredients();
+            for(Recipe r : recipes){
+                int recipieID = r.getRecipeID();
+                db.closeConnection();
+                db.openConnection();
+                res = db.getSelection(sql2 + recipieID);
+                while(res.next()){
+                    int ingredienceID = res.getInt("ingredience_id");
+                    int amount = res.getInt("amount");
+                    for(Ingredient i : allIngredients){
+                        if(i.getIngredientID() == ingredienceID){
+                            i.setAmount(amount);
+                            r.addIngredient(new Ingredient(i.getIngredientID(), i.getName(), i.getInStock(), i.getOrderMin(), i.getPrice(), i.getAmount()));
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Feil i DatabaseOperations.getAllRecipes()");
+        } finally {
+            db.closeConnection();
+            return recipes;
+        }
+    }
+
+    public ArrayList<Ingredient> getAllIngredients(){
+        String sql = "SELECT * FROM ingredients";
+        db.openConnection();
+        ResultSet res = db.getSelection(sql);
+        ArrayList<Ingredient> ingredients = new ArrayList<>();
+        try {
+            while(res.next()){
+                int ingredienceID = res.getInt("ingredience_id");
+                String name = res.getString("name");
+                int inStock = res.getInt("in_stock");
+                int orderMin = res.getInt("order_min");
+                double price = (double)(res.getFloat("price"));
+                //int ingredientID, String name, int inStock, int orderMin, double price
+                Ingredient ingr = new Ingredient(ingredienceID, name, inStock, orderMin, price);
+                ingredients.add(ingr);
+            }
+        } catch (Exception e) {
+            System.out.println("Feil i DatabaseOperations.getAllIngredients()");
+        } finally {
+            db.closeConnection();
+            return ingredients;
+        }
+    }
+
     // Metode for å hente alle ansatte
     // Metode for å legge inn ny ansatt
     // Metode for å hente pakker
