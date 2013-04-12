@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e04cfac-2494-430e-bfd5-397530123698" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/healtycaresystem/CeoGUI.java" afterPath="$PROJECT_DIR$/src/healtycaresystem/CeoGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="gitDatabaseProject.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1365758200223" ignored="false" />
+    <file path="/Dummy.txt" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1365758426989" ignored="false" />
     <file path="/Customer.java" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1362137621630" ignored="false" />
     <file path="/DatabaseOperations.java" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1362134127830" ignored="false" />
     <file path="/Healthycaresystems.java" changelist="0e04cfac-2494-430e-bfd5-397530123698" time="1362134723153" ignored="false" />
@@ -109,10 +108,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CeoGUI.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CeoGUI.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/healtycaresystem/CeoGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="476" column="0" selection-start="14978" selection-end="14978" vertical-scroll-proportion="0.7690476">
+            <state line="476" column="0" selection-start="14978" selection-end="14978" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc;n#tp#0;n#CeoGUI#0" expanded="false" />
                 <element signature="method#CeoGUI#0;class#CeoGUI#0" expanded="false" />
@@ -137,10 +136,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CeoEdit.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="CeoEdit.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/healtycaresystem/CeoEdit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="198" column="1" selection-start="6478" selection-end="6478" vertical-scroll-proportion="0.0">
+            <state line="198" column="1" selection-start="6478" selection-end="6478" vertical-scroll-proportion="0.75714284">
               <folding />
             </state>
           </provider>
@@ -498,7 +497,11 @@
       <created>1365672659189</created>
       <updated>1365672659189</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Masse">
+      <created>1365758471829</created>
+      <updated>1365758471829</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -694,16 +697,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/CeoEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="198" column="1" selection-start="6478" selection-end="6478" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/healtycaresystem/CeoGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="476" column="0" selection-start="14978" selection-end="14978" vertical-scroll-proportion="0.7690476">
+        <state line="476" column="0" selection-start="14978" selection-end="14978" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc;n#tp#0;n#CeoGUI#0" expanded="false" />
             <element signature="method#CeoGUI#0;class#CeoGUI#0" expanded="false" />
@@ -724,6 +720,13 @@
             <element signature="method#ComboPanel#0;class#ComboPanel#0;class#CeoGUI#0" expanded="false" />
             <element signature="method#initCombos#0;class#ComboPanel#0;class#CeoGUI#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/healtycaresystem/CeoEdit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="198" column="1" selection-start="6478" selection-end="6478" vertical-scroll-proportion="0.75714284">
+          <folding />
         </state>
       </provider>
     </entry>
