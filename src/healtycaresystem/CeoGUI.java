@@ -634,6 +634,11 @@ public class CeoGUI extends JFrame {
             button.setText("Edit values");
             button.addActionListener(new ButtonListener());
 
+            gb.weighty = 3;
+            gb.weightx = 3;
+            gb.gridheight = GridBagConstraints.REMAINDER;
+            add(Box.createGlue(),gb);
+
         }
 
         private class ButtonListener implements ActionListener{

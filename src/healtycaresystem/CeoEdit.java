@@ -183,12 +183,13 @@ public class CeoEdit extends JDialog {
                     JOptionPane.showMessageDialog(null, workersInsurance.getText());
                     break;
                 case "house":
-                    try {
+                    JOptionPane.showMessageDialog(null, houseRent.getText());
+                   /* try {
                         int houses = Integer.parseInt(houseRent.getText());
                         JOptionPane.showMessageDialog(null, houses);
                     } catch (NumberFormatException s) {
                         JOptionPane.showMessageDialog(null, "Not a number");
-                    }
+                    } */
                     break;
                 default:
                     break;
